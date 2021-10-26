@@ -1,0 +1,45 @@
+$kkr-primary: #f1863b;
+.outlet-details-container {
+  background: linear-gradient(to right bottom, #f1863b -200%, white 100%) fixed;
+  min-width: 340px;
+  max-width: 340px;
+  min-height: 380px;
+  max-height: 380px;
+  border: 1px solid lightyellow;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 18px;
+  box-shadow: 0px 0px 14px -3px rgb(0 0 0 / 30%);
+  position: relative;
+
+  &:hover {
+    transform: scale(1.2);
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .outlet-title {
+    font-size: 22px;
+  }
+
+  .address-container {
+    padding: 8px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 38px;
+  }
+
+  .order-btn-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    .btn-order-now {
+      justify-content: center;
+      width: 100%;
+      background-color: $kkr-primary;
+    }
+  }
+  
+}

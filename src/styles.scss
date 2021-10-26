@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/primeflex/primeflex.scss";
+
+.container {
+  height: 100%;
+  font-size: 14px;
+  font-family: 'poppins', sans-serif;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.text-white {
+  color: white;
+}
+
+// animations examples
+// https://codepen.io/cbanlawi/pen/MWbemYP

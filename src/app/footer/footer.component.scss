@@ -1,0 +1,53 @@
+.footer-container {
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  text-align: center;
+  background-color: #323232;
+  color: #ffffff;
+
+  .footer-content {
+    align-content: center;
+    justify-content: space-evenly;
+    padding: 0 50px;
+  }
+
+  .copyright {
+    border-top: 1px solid lightgoldenrodyellow;
+    padding-top: 14px;
+    // align-items: center;
+    // align-content: center;
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .footer-sub-header {
+    font-size: 18px;
+    // color: azure;
+  }
+
+  .page-links {
+    margin-top: 14px;
+  }
+  .page-link {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: floralwhite;
+
+    &:first-child {
+      border: none;
+    }
+  }
+  
+
+  .social-media-icons-container {
+    justify-content: center;
+    margin: 20px;
+    .icon-social-media {
+      margin: 4px 12px;
+      cursor: pointer;
+    }
+  }
+}
