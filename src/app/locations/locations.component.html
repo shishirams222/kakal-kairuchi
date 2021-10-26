@@ -1,0 +1,35 @@
+<div class="p-d-flex p-flex-column p-ai-center p-ac-stretch p-jc-center locations-container">
+  <div class="p-d-flex p-ai-center p-flex-column locations-header-container">
+    <div class="bg-image-container">
+      <p-image src="assets/images/locations_top_bg.png" alt="Image" width="1920"></p-image>
+    </div>
+    <div class="p-d-flex p-jc-center p-ai-center p-flex-column locations-header">
+      <p-image src="assets/icons/hand_logo.png" alt="Image" width="100"></p-image>
+      <p class="locations-header-text text-white">
+        Find Kai Ruchi <br>
+        Near You
+      </p>
+    </div>
+  </div>
+  <div class="p-text-center">
+    <p class="locations-header-text text-gray">
+      Restaurants Open
+    </p>
+    <p class="sub-header">
+      For Delivery and Takeaway
+    </p>
+  </div>
+  <!-- {{outletData[0].outletName}} -->
+  <ul class="p-d-flex p-flex-row p-flex-wrap p-ai-center p-as-stretch p-jc-center">
+    <li *ngFor="let outlet of outletData">
+      <app-outlet-details 
+        [outletImage]="outlet.outletImage"
+        [outletName]="outlet.outletName"
+        [outletAddress]="outlet.outletAddress"
+        [outletPhone]="outlet.outletPhone"
+        [outletDescription]="outlet.outletDescription"
+        >
+      </app-outlet-details>
+    </li>
+  </ul>
+</div>

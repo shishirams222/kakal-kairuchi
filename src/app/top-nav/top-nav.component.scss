@@ -1,0 +1,86 @@
+$kkr-primary: #f1863b;
+.top-nav-container {
+  // background-color: oldlace;
+  background: linear-gradient(
+45deg, black, transparent);
+  // background: none;
+  min-height: 60px;
+  align-items: flex-start;
+  padding-left: 40px;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+
+  .home-logo {
+    cursor: pointer;
+
+    .title {
+      margin-left: 10px;
+      letter-spacing: -1.5px;
+    }
+  }
+
+  .top-nav-item {
+    // border: 1px solid #ababab;
+    // box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin: 8px 4px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: antiquewhite;
+
+    .top-nav-content {
+      color: antiquewhite;
+    }
+
+
+    &:hover {
+      // background: rgb(212,227,227);
+      // background: linear-gradient(0deg, rgba(212,227,227,1) 0%, rgba(253,187,45,0.896796218487395) 74%);
+      color: #ffffff;
+      background: linear-gradient(to right, antiquewhite 0, $kkr-primary 20%, antiquewhite 20%);
+      background-position: 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s infinite linear;
+      animation-fill-mode: forwards;
+      -webkit-text-size-adjust: none;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  }
+
+  .order-online-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: $kkr-primary;
+    align-self: center;
+    margin-right: 20px;
+  }
+
+  .btn-shine {
+    color: #ffffff;
+    background: linear-gradient(to right, $kkr-primary 0, white 10%, $kkr-primary 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+    
+  @keyframes shine {
+    0% {
+      background-position: 0
+    }
+    60% {
+      background-position: 180px
+    }
+    100% {
+      background-position: 180px;
+    }
+  }
+}

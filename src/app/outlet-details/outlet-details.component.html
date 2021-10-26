@@ -1,0 +1,33 @@
+<div class="outlet-details-container">
+  <div class="outlet-index">
+    {{outletIndex}}
+  </div>
+  <div>
+    <p-image src="{{outletImage}}" alt="Image"></p-image>
+  </div>
+  <div>
+    <p class="outlet-title">
+      {{outletName}}
+    </p>
+    <p>
+      {{outletDescription}}
+    </p>
+    <div class="address-container">
+      <p>
+        Address: {{outletAddress}}
+      </p>
+      <div class="p-flex-row">
+        <p>Call: </p>
+        <a href="tel:{{outletPhone}}">{{outletPhone}}</a>
+      </div>
+      <!-- <p>
+        Phone: {{outletPhone}}
+      </p> -->
+    </div>
+  </div>
+  <div class="p-d-flex p-flex-column order-btn-container">
+    <a href="https://kakalkairuchi.dotpe.in/">
+      <button class="p-element p-ripple p-button p-component btn-order-now">Order Now!</button>
+    </a>
+  </div>
+</div>
