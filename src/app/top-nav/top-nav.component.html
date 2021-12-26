@@ -1,9 +1,12 @@
 <div class="p-d-flex p-flex-row is-justify-content-space-between top-nav-container is-flex-wrap-wrap">
+  <div class="side-nav-parent">
+    <app-side-nav></app-side-nav>
+  </div>
+  <div class="only-logo" routerLink="/home">
+    <p-image src="assets/icons/hand_logo.png" alt="Image" width="60"></p-image>
+  </div>
   <div class="is-flex is-align-items-center home-logo" routerLink="/home">
-    <p-image src="assets/images/kkr_logo_dark.png" alt="Image" width="110"></p-image>
-    <!-- <p class="title mb-0">
-      Kakal Kai Ruchi
-    </p> -->
+    <p-image src="assets/images/full_logo_white_orange.png" alt="Image" width="110"></p-image>
   </div>
   <div class="is-flex is-flex-direction-row is-align-items-center p-d-none p-d-md-inline-flex">
     <!-- Main Navigation -->
@@ -27,7 +30,7 @@
             >About Us</a
           >
         </li>
-        <li class="top-nav-item">
+        <!-- <li class="top-nav-item">
           <a
             class="top-nav-content"
             routerLink="/menu"
@@ -35,31 +38,15 @@
             [class.active]="activetab === 'menu'"
             >Menu</a
           >
-        </li>
+        </li> -->
 
-        <!-- <li class="top-nav-item">
-          <a
-            routerLink="/Services"
-            (click)="getActiveTab('services')"
-            [class.active]="activetab === 'services'"
-            >Services</a
-          >
-        </li> -->
-        <!-- <li class="top-nav-item">
-          <a
-            routerLink="/menu"
-            (click)="getActiveTab('menu')"
-            [class.active]="activetab === 'menu'"
-            >Menu</a
-          >
-        </li> -->
         <li class="top-nav-item">
           <a
             class="top-nav-content"  
             routerLink="/franchise"
             (click)="getActiveTab('franchise')"
             [class.active]="activetab === 'franchise'"
-            >Franchise</a
+            >FeedBack/ Enquiry</a
           >
         </li>
         <li class="top-nav-item">

@@ -23,30 +23,38 @@
 
   .footer-sub-header {
     font-size: 18px;
-    // color: azure;
+  }
+
+  .footer-sub-content {
+    margin-left: 14px;
   }
 
   .page-links {
     margin-top: 14px;
   }
+
   .page-link {
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     padding: 0 20px;
     text-transform: uppercase;
     font-weight: 500;
-    color: floralwhite;
+    color: lightgrey;
 
     &:first-child {
       border: none;
     }
+
+    &:hover {
+      color: white;
+    }
   }
-  
 
   .social-media-icons-container {
     justify-content: center;
-    margin: 20px;
+    margin: 20px 0 10px 0;
     .icon-social-media {
-      margin: 4px 12px;
+      margin: 2px 20px;
+      height: 32px;
       cursor: pointer;
     }
   }

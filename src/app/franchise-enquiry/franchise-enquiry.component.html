@@ -1,39 +1,39 @@
-<div class="is-flex is-flex-direction-column is-align-items-center franchise-container">
+<div class="p-d-flex p-flex-column is-align-items-center franchise-container">
   <div class="is-flex header-container">
     <p class="title franchise-title">
-      Own A Franchise
+      Write To Us
     </p>
   </div>
   <div class="is-flex franchise-img-container">
     <p-image src="assets/images/franchise_top_img.png" alt="Image" width="1080"></p-image>
   </div>
-  <div class="is-flex is-flex-direction-row form-container is-flex-wrap-wrap">
+  <div class="is-flex is-flex-direction-row form-container">
     <div class="title">
-      Franchise <br> Enquiry
+      FeedBack/ Franchise <br> Enquiry
     </div>
     <form id="myForm">
       <div class="form-area">
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col-12 p-md-6">
-              <label for="firstname">Firstname</label>
-              <input id="firstname" type="text" class="p-inputtext p-component p-element" pInputText> 
+            <label for="firstname">Firstname</label>
+            <input name="firstname" id="firstname" type="text" class="p-inputtext p-component p-element" pInputText> 
           </div>
           <div class="p-field p-col-12 p-md-6">
-              <label for="lastname">Lastname</label>
-              <input id="lastname" type="text" class="p-inputtext p-component p-element" pInputText> 
+            <label for="lastname">Lastname</label>
+            <input name="lastname" id="lastname" type="text" class="p-inputtext p-component p-element" pInputText> 
           </div>
           <div class="p-field p-col-12 p-md-6">
             <label for="email">Email</label>
-            <input id="email" type="text" class="p-inputtext p-component p-element" pInputText> 
+            <input name="email" id="email" type="text" class="p-inputtext p-component p-element" pInputText> 
           </div>
           <div class="p-field p-col-12 p-md-6">
-              <label for="phone">Phone</label>
-              <input id="phone" type="text" class="p-inputtext p-component p-element" pInputText> 
+            <label for="phone">Phone</label>
+            <input name="phone" id="phone" type="text" class="p-inputtext p-component p-element" pInputText> 
           </div>
-          <div class="p-field p-col-12">
+          <!-- <div class="p-field p-col-12">
               <label for="place">Write To Us...</label>
               <textarea id="place" type="text" rows="4" class="p-inputtext p-component p-element"></textarea>
-          </div>
+          </div> -->
         </div>
         <button (click)="submitEnquiry()" class="p-element p-ripple p-button p-component" pButton pRipple type="button" label="Submit">Submit</button>
       </div>

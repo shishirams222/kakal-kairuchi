@@ -1,14 +1,18 @@
 .locations-container {
   font-family: serif;
-  // font-size: 72px;
-  // font-weight: 500;
-  // letter-spacing: -1.8px;
-  padding-top: 140px;
-  // justify-content: center;
+  padding-top: 60px;
 
   .locations-header-text {
     text-align: center;
     font-size: 60px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .web {
+    display: flex;
   }
 
   .sub-header {
@@ -24,9 +28,20 @@
       top: 0;
       bottom: 0;
     }
-    .bg-image-container {
-      // position: fixed;
-      // top: 0;
+  }
+
+  @media screen and (max-width: 660px) {
+    .locations-header-text {
+      font-size: 40px;
+    }
+    .sub-header {
+      font-size: 18px;
+    }
+    .web {
+      display: none;
+    }
+    .mobile {
+      display: flex;
     }
   }
 }

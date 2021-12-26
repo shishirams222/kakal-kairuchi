@@ -9,8 +9,15 @@
   }
 
   .form-container {
+
+    @media screen and (max-width: 660px) {
+      flex-wrap: wrap;
+    }
+
     .title {
       padding: 40px;
+      min-width: 240px;
+      align-self: center;
     }
 
     .form-area {

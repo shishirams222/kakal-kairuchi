@@ -1,15 +1,26 @@
 $kkr-primary: #f1863b;
 .top-nav-container {
-  // background-color: oldlace;
-  background: linear-gradient(
-45deg, black, transparent);
-  // background: none;
-  min-height: 60px;
-  align-items: flex-start;
-  padding-left: 40px;
-  // padding-top: 20px;
-  // padding-bottom: 20px;
+  // background: linear-gradient(45deg, black, transparent);
+  background: none;
+  box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
+  min-height: 74px;
+  align-items: center;
+  padding-left: 24px;
 
+  &.active {
+    // background: yellowgreen;
+    box-shadow: rgb(0 0 0 / 99%) 0px 70px 50px -12px inset, black 0px 70px 36px -18px inset;
+    // box-shadow: rgba(50, 50, 93, 0.993) 0px 70px 50px -12px inset, rgb(0, 0, 0) 0px 24px 36px -18px inset;
+  }
+
+  .side-nav-parent {
+    display: none;
+  }
+
+  .only-logo {
+    display: none;
+  }
+  
   .home-logo {
     cursor: pointer;
 
@@ -24,30 +35,33 @@ $kkr-primary: #f1863b;
     // box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
     border-radius: 4px;
     padding: 2px 8px;
-    margin: 8px 4px;
-    font-size: 24px;
+    margin: 8px 10px;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: 600;
     color: antiquewhite;
 
     .top-nav-content {
       color: antiquewhite;
+      &:hover {
+        color: white;
+      }
     }
 
 
     &:hover {
       // background: rgb(212,227,227);
       // background: linear-gradient(0deg, rgba(212,227,227,1) 0%, rgba(253,187,45,0.896796218487395) 74%);
-      color: #ffffff;
-      background: linear-gradient(to right, antiquewhite 0, $kkr-primary 20%, antiquewhite 20%);
-      background-position: 0;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shine 3s infinite linear;
-      animation-fill-mode: forwards;
-      -webkit-text-size-adjust: none;
-      text-decoration: none;
-      white-space: nowrap;
+      // color: #ffffff;
+      // background: linear-gradient(to right, antiquewhite 0, $kkr-primary 20%, antiquewhite 20%);
+      // background-position: 0;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // animation: shine 3s infinite linear;
+      // animation-fill-mode: forwards;
+      // -webkit-text-size-adjust: none;
+      // text-decoration: none;
+      // white-space: nowrap;
     }
   }
 
@@ -83,4 +97,19 @@ $kkr-primary: #f1863b;
       background-position: 180px;
     }
   }
+
+  // @media screen and (max-width: 660px) {
+  //   padding-left: 8px;
+  //   .side-nav-parent {
+  //     display: block;
+  //   }
+    
+  //   .home-logo {
+  //     display: none !important;
+  //   }
+
+  //   .only-logo {
+  //     display: block;
+  //   }
+  // }
 }

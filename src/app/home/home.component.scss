@@ -14,7 +14,8 @@
     }
 
     .images-container {
-      overflow: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
       &:hover {
         .single-image {
           -webkit-animation-play-state:paused;
@@ -23,7 +24,6 @@
           animation-play-state:paused;
           cursor: pointer;
         }
-        
       }
 
       .single-image {
@@ -31,8 +31,14 @@
         min-width: 350px;
         color: azure;
         position: relative;
-        animation: slide 15s linear infinite;
-        
+        border-radius: 4px;
+        border: 3px solid floralwhite;
+        // animation: slide 15s linear infinite;
+        // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+        img {
+          border-radius: 8px;
+        }
 
         .image-number {
           font-size: 174px;

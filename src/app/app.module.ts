@@ -17,6 +17,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { MenuComponent } from './menu/menu.component';
 import { LocationsComponent } from './locations/locations.component';
 import { OutletDetailsComponent } from './outlet-details/outlet-details.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { ButtonModule } from "primeng/button";
+import { SidebarModule } from "primeng/sidebar";
+
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -28,13 +33,17 @@ import { OutletDetailsComponent } from './outlet-details/outlet-details.componen
     AboutUsComponent,
     MenuComponent,
     LocationsComponent,
-    OutletDetailsComponent
+    OutletDetailsComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RoutingModule,
     ImageModule,
+    SidebarModule,
+    ButtonModule,
     CommonModule
   ],
   providers: [],

@@ -21,7 +21,7 @@ export class LocationsComponent implements OnInit {
       outletName: 'RBI LAYOUT',
       outletDescription: 'FINE DINING RESTAURANT',
       outletAddress: 'JP Nagar and Konankunte Cross',
-      outletPhone: '080 42350950/ +91 9448395832',
+      outletPhone: '+91 9071425110',
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
     },
     {
@@ -29,7 +29,7 @@ export class LocationsComponent implements OnInit {
       outletName: 'KONANKUNTE',
       outletDescription: '',
       outletAddress: 'Konankunte Cross, Amrutha Nagar Road, Kanakpura Road',
-      outletPhone: '+91 9448281196',
+      outletPhone: '+91 9448281193',
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
     },
     {
@@ -37,7 +37,7 @@ export class LocationsComponent implements OnInit {
       outletName: '24th MAIN, JP NAGAR',
       outletDescription: '',
       outletAddress: '#75/A, 24th Main Road, JP Nagar 7th Phase',
-      outletPhone: '+91 9071486007',
+      outletPhone: '+91 9071425012',
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
     },
     // {
@@ -53,11 +53,19 @@ export class LocationsComponent implements OnInit {
       outletName: 'AKSHAYNAGAR',
       outletDescription: '',
       outletAddress: '#67, Begur hulimavu main road Bhagyalakshmi Avenue, Rukmaiah Layout, Nyanappana Halli',
-      outletPhone: '+91 9****',
+      outletPhone: '+91 8197935112',
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
     },
     {
       outletIndex: '7',
+      outletName: 'KENGERI',
+      outletDescription: '',
+      outletAddress: '25, 2nd Main Rd, Stage I, Kengeri Satellite Town, Bengaluru, Karnataka 560060',
+      outletPhone: '+91 9986242652',
+      outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
+    },
+    {
+      outletIndex: '8',
       outletName: 'UTTARAHALLI',
       outletDescription: '',
       outletAddress: 'No #64 Krishnappa Layout, Uttarahalli Main Rd, Beside Poornaprgnya Layout Bustop',
@@ -65,13 +73,13 @@ export class LocationsComponent implements OnInit {
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
     },
     {
-      outletIndex: '8',
+      outletIndex: '9',
       outletName: 'RT NAGAR',
       outletDescription: '',
       outletAddress: 'Shop No.57, 1, 5th Main Rd, Papanna Block, AK Colony, Ganganagar',
       outletPhone: '+91 9****',
       outletImage: 'assets/images/outlet_images/sample_outlet_photo.png'
-    }
+    },
   ];
 
   constructor() { }
