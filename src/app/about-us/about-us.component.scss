@@ -230,15 +230,8 @@ $kkr-primary: #f1863b;
         .image-info {
           display: flex;
         }
-      }
-
-      
+      } 
     }
-    
-    .timeline .direction-r .desc {
-      // margin: 1em 0 0 0.75em;
-    }
-    
     /* ================ Timeline Media Queries ================ */
     
     @media screen and (max-width: 660px) {
@@ -349,13 +342,5 @@ $kkr-primary: #f1863b;
       }
     
     }
-    
-    // @media screen and (min-width: 400px ?? max-width: 660px) {
-  
-    //   .timeline .direction-l .desc,
-    //   .timeline .direction-r .desc {
-    //     margin: 1em 4em 0 4em;
-    //   }
-    // }    
 }
   
