@@ -13,9 +13,9 @@ $kkr-primary: #f1863b;
     // box-shadow: rgba(50, 50, 93, 0.993) 0px 70px 50px -12px inset, rgb(0, 0, 0) 0px 24px 36px -18px inset;
   }
 
-  .side-nav-parent {
-    display: none;
-  }
+  // .side-nav-parent {
+  //   display: none;
+  // }
 
   .only-logo {
     display: none;
@@ -98,18 +98,18 @@ $kkr-primary: #f1863b;
     }
   }
 
-  // @media screen and (max-width: 660px) {
-  //   padding-left: 8px;
-  //   .side-nav-parent {
-  //     display: block;
-  //   }
+  @media screen and (max-width: 660px) {
+    padding-left: 8px;
+    // .side-nav-parent {
+    //   display: flex;
+    // }
     
-  //   .home-logo {
-  //     display: none !important;
-  //   }
+    .home-logo {
+      display: none !important;
+    }
 
-  //   .only-logo {
-  //     display: block;
-  //   }
-  // }
+    .only-logo {
+      display: block;
+    }
+  }
 }

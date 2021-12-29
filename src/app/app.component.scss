@@ -29,4 +29,15 @@ body, input[type="text"], button {
     z-index: 5;
   }
 
+  .side-nav-parent {
+    display: none;
+  }
+
+  @media screen and (max-width: 660px) {
+    // padding-left: 8px;
+    .side-nav-parent {
+      display: block;
+    }
+  }
 }
+

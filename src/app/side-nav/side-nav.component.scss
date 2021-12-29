@@ -9,11 +9,18 @@ $kkr-primary: #f1863b;
   //   background-color: rgba(255,255,255,0.75);
   // }
 
+
   .side-nav-item {
     border-bottom: 1px solid #ababab;
     font-size: 20px;
-    padding: 8px 0;
-    color: black;
+    padding: 8px;
+    color: white;
+  }
+
+  .side-nav-button {
+    position: absolute;
+    top: 24px;
+    left: 12px;
   }
 
 }
