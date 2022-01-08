@@ -1,45 +1,68 @@
 <div class="home-container">
-
-  <div style="max-height: 100vh;overflow-y: scroll;scroll-snap-type: y mandatory;">
-    <div style="scroll-snap-align: start ;
-      min-height: 100vh;
-      background-image: url(assets/images/product_1.png); 
-      background-repeat: no-repeat; 
-      background-attachment: fixed; 
-      background-size: 100% 100%; align-items: center; display: flex; flex-direction: column;
-      justify-content: space-between;">
-      <div style="margin-top: 130px; justify-content: center;">
+  <div class="home-mobile-container" id="main">
+    <div class="single-section" id="section-one">
+      <div class="section-one">
+        <video autoplay muted>
+          <source src="assets/videos/bg_vada.mp4" type="video/mp4">
+        </video>
+        <div class="welcome-text">
+          <h1 class="header">
+            {{header}}
+          </h1>
+          <h2 class="description">
+            {{description}}
+          </h2>
+        </div>
+        <div class="btn-order-online-container">
+          <a href="https://kakalkairuchi.dotpe.in/">
+            <button class="btn-order-online">Order Now!</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="single-section">
+      <!-- <div class="welcome-text">
         <h1 style="font-size: 32px; color: floralwhite; text-align: center;">
-          Hola!
+          Products
         </h1>
-        <h2 style="font-size: 20px; color: lightcyan;">
-          Welcome to KKR
+        <h2 style="font-size: 20px; color: darkslateblue;">
+          Catchy product line
         </h2>
       </div>
-      <div style="margin-bottom: 70px;">
+      <div class="btn-order-online-container">
         <a href="https://kakalkairuchi.dotpe.in/">
-          <button style="border-radius: 24px;
-          min-height: 44px;
-          min-width: 230px;
-          transition: all .5s ease-in-out 1s;
-          text-transform: uppercase;
-          font-size: 16px;
-          font-weight: 500;
-          color: #f1863b;
-          background-color: lightcyan;
-          border: 2px solid #f1863b;">Order Now!</button>
+          <button class="btn-order-online">Order Now!</button>
         </a>
+      </div> -->
+      <div id="slide-show-container" class="slide-show-container">
+        <div id="image-one" class="single-slide fade">
+          <img src="assets/images/home_page_products/jamoon.jpg">
+        </div>
+        <div id="image-two" class="single-slide fade">
+          <img src="assets/images/home_page_products/chakli.jpeg">
+        </div>
+        <div id="image-three" class="single-slide fade">
+          <img src="assets/images/home_page_products/jeera.png">
+        </div>
+        <div id="image-four" class="single-slide fade">
+          <img src="assets/images/home_page_products/rasam.jpeg">
+        </div>
+        <div id="image-five" class="single-slide fade">
+          <img src="assets/images/home_page_products/daniya.png">
+        </div>
+        <div id="image-six" class="single-slide fade">
+          <img src="assets/images/home_page_products/idli_sambar_ina.jpeg">
+        </div>
+        <div id="image-seven" class="single-slide fade">
+          <img src="assets/images/home_page_products/bbb.png">
+        </div>
+        <div id="image-eight" class="single-slide fade">
+          <img src="assets/images/home_page_products/vangi_bath.jpeg">
+        </div>
+        <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav" (click)="scrollPrevious()">&#10094;</button>
+        <button class="nav-button next" *ngIf="imgIndex < 6 && showNav" (click)="scrollNext()">&#10095;</button>
       </div>
     </div>
-    <div style="scroll-snap-align: start ; min-height: 100vh; background-image: url(assets/images/product_2.png); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
-    </div>
-    <div style="scroll-snap-align: start ; min-height: 100vh; background-image: url(assets/images/product_3.png); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
-    </div>
-    <!-- <div style="scroll-snap-align: start ; min-height: 100vh;">
-      
-    </div>
-    <div style="scroll-snap-align: start ; min-height: 100vh;">Page 3</div>
-    <div style="scroll-snap-align: start ; min-height: 100vh;">Page 4</div> -->
 </div>
   
 

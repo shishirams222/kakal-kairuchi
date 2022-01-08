@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Element } from '@angular/compiler';
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,150 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  imgIndex: number = 0;
+  header: string = 'Hola';
+  description: string = 'Welcome to KKR';
+  showNav: boolean = false;
+  showLeft: boolean = false;
+  showright: boolean = true;
   ngOnInit(): void {
   }
+
+  scrollNext () {
+    const slideShowContainer = document.getElementById("slide-show-container");
+    const scrollValue = slideShowContainer?.scrollLeft || 0;
+    $(".slide-show-container").scrollLeft(scrollValue + 300);
+    this.imgIndex++;
+    // this.description = this.setProductName(slideShowContainer?.scrollLeft || 0 ,this.imgIndex)
+  };
+
+  scrollPrevious () {
+    const slideShowContainer = document.getElementById("slide-show-container");
+    const scrollValue = slideShowContainer?.scrollLeft || 0;
+    $(".slide-show-container").scrollLeft(scrollValue-300);
+    this.imgIndex--;
+  };
+
+  ngAfterContentInit() {
+    (() => {
+
+      const app = document.getElementById("main");
+      const section1 = document.getElementById("section-one");
+      app && app.addEventListener('scroll', () => {
+        const scrolly = app.scrollTop;
+        const sectionHeight = section1 && section1.scrollHeight || 0;
+        const stepper = sectionHeight/10;
+
+        console.log('scrollY: ', scrollY, sectionHeight);
+        if (scrolly > (sectionHeight - 1)) {
+          this.showNav = true;
+        } else {
+          this.showNav = false;
+        }
+        
+        if (scrolly > stepper) {
+          $(".welcome-text").css("opacity", "0.9");
+          $(".btn-order-online-container").css("opacity", "0.9");
+        }
+        if (scrolly > (stepper * 2)) {
+          $(".welcome-text").css("opacity", "0.7");
+          $(".btn-order-online-container").css("opacity", "0.7");
+        }
+        if (scrolly > (stepper * 3)) {
+          $(".welcome-text").css("opacity", "0.5");
+          $(".btn-order-online-container").css("opacity", "0.5");
+        }
+        if (scrolly > (stepper * 4)) {
+          $(".welcome-text").css("opacity", "0.3");
+          $(".btn-order-online-container").css("opacity", "0.3");
+        }
+        if (scrolly > (stepper * 5)) {
+          $(".welcome-text").css("opacity", "0.1");
+          $(".btn-order-online-container").css("opacity", "0.1");
+          $(".header").css("color", "floralwhite");
+          $(".description").css("color", "orange");
+          this.header = 'Our Products';
+          this.description = 'Gulaab Jamoon';
+        } else if (scrolly < (stepper * 5)) {
+          this.header = 'Hola!';
+          this.description = 'Welcome to KKR';
+          $(".header").css("color", "darkblue");
+          $(".description").css("color", "black");
+        }
+        if (scrolly > (stepper * 6)) {
+          $(".welcome-text").css("opacity", "0.3");
+          $(".btn-order-online-container").css("opacity", "0.3");
+        }
+        if (scrolly > (stepper * 7)) {
+          $(".welcome-text").css("opacity", "0.5");
+          $(".btn-order-online-container").css("opacity", "0.5");
+        }
+        if (scrolly > (stepper * 8)) {
+          $(".welcome-text").css("opacity", "0.7");
+          $(".btn-order-online-container").css("opacity", "0.7");
+        }
+        if (scrolly > (stepper * 9)) {
+          $(".welcome-text").css("opacity", "0.9");
+          $(".btn-order-online-container").css("opacity", "0.9");
+        }
+        if (scrolly >= (stepper * 10)) {
+          $(".welcome-text").css("opacity", "1.0");
+          $(".btn-order-online-container").css("opacity", "1.0");
+        }
+      });
+
+      const slideShowContainer = document.getElementById("slide-show-container");
+      const image1 = document.getElementById("image-one");
+      slideShowContainer && slideShowContainer.addEventListener('scroll', () => {
+        const scrollX = slideShowContainer.scrollLeft;
+        const imageWidth = image1?.scrollWidth || 0;
+        console.log('scrollx: ', scrollX);
+        console.log('image2 width: ', image1?.scrollWidth);
+
+        if ((scrollX === 0)) {
+          this.description = 'Gulaab Jamoon';
+          this.showLeft = false;
+          this.showright = true;
+        }
+
+        if ((scrollX > 0) && (scrollX <= imageWidth)) {
+          this.description = 'Product 2';
+          this.showLeft = false;
+          this.showright = true;
+        }
+
+        if (scrollX > (imageWidth) && scrollX <= (imageWidth*2)) {
+          this.description = 'Product 3';
+          this.showLeft = true;
+          this.showright = true;
+        }
+        if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
+          this.description = 'Product 4';
+          this.showLeft = true;
+          this.showright = true;
+        }
+        if (scrollX > (imageWidth*3) && scrollX >= (imageWidth*4)) {
+          this.description = 'Product 5';
+          this.showLeft = true;
+          this.showright = true;
+        }
+        if (scrollX > (imageWidth*4) && scrollX >= (imageWidth*5)) {
+          this.description = 'Product 6';
+          this.showLeft = true;
+          this.showright = true;
+        }
+        if (scrollX > (imageWidth*5) && scrollX >= (imageWidth*6)) {
+          this.description = 'Product 7';
+          this.showLeft = true;
+          this.showright = true;
+        }
+        if (scrollX > (imageWidth*6) && scrollX >= (imageWidth*7)) {
+          this.description = 'Product 8';
+          this.showLeft = true;
+          this.showright = false;
+        }
+      });
+    })()
+  };
 
 }
