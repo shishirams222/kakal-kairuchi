@@ -5,15 +5,15 @@
         <video autoplay muted>
           <source src="assets/videos/bg_vada.mp4" type="video/mp4">
         </video>
-        <div class="welcome-text">
-          <h1 class="header">
+        <div class="welcome-text" *ngIf="showHeaderButtons">
+          <h1 class="header" *ngIf="showHeader">
             {{header}}
           </h1>
           <h2 class="description">
             {{description}}
           </h2>
         </div>
-        <div class="btn-order-online-container">
+        <div class="btn-order-online-container" *ngIf="showHeaderButtons">
           <a href="https://kakalkairuchi.dotpe.in/">
             <button class="btn-order-online">Order Now!</button>
           </a>
@@ -21,20 +21,7 @@
       </div>
     </div>
     <div class="single-section">
-      <!-- <div class="welcome-text">
-        <h1 style="font-size: 32px; color: floralwhite; text-align: center;">
-          Products
-        </h1>
-        <h2 style="font-size: 20px; color: darkslateblue;">
-          Catchy product line
-        </h2>
-      </div>
-      <div class="btn-order-online-container">
-        <a href="https://kakalkairuchi.dotpe.in/">
-          <button class="btn-order-online">Order Now!</button>
-        </a>
-      </div> -->
-      <div id="slide-show-container" class="slide-show-container">
+      <div id="slide-show-container1" class="slide-show-container">
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products/jamoon.jpg">
         </div>
@@ -62,6 +49,30 @@
         <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav" (click)="scrollPrevious()">&#10094;</button>
         <button class="nav-button next" *ngIf="imgIndex < 6 && showNav" (click)="scrollNext()">&#10095;</button>
       </div>
+    </div>
+    <div class="single-section">
+      <div id="slide-show-container2" class="slide-show-container">
+        <div id="image-one" class="single-slide fade">
+          <img src="assets/images/home_page_products_2/cheese_ball.jpg">
+        </div>
+        <div id="image-two" class="single-slide fade">
+          <img src="assets/images/home_page_products_2/grilled_garlic_panner.jpg">
+        </div>
+        <div id="image-three" class="single-slide fade">
+          <img src="assets/images/home_page_products_2/bbq_paneer_tikka.jpg">
+        </div>
+        <div id="image-four" class="single-slide fade">
+          <img src="assets/images/home_page_products_2/peas_cuttlet.jpg">
+        </div>
+        <div id="image-five" class="single-slide fade">
+          <img src="assets/images/home_page_products_2/masala_dosa.jpg">
+        </div>
+        <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav && showLeft" (click)="scrollPrevious()">&#10094;</button>
+        <button class="nav-button next" *ngIf="imgIndex < 6 && showNav && showRight" (click)="scrollNext()">&#10095;</button>
+      </div>
+    </div>
+    <div class="single-section">
+      <app-footer></app-footer>
     </div>
 </div>
   

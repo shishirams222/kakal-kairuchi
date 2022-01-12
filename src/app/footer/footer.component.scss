@@ -5,6 +5,9 @@
   text-align: center;
   background-color: #323232;
   color: #ffffff;
+  min-height: 100vh;
+  background-image: url('../../assets/images/footer_bg.jpg');
+  position: relative;
 
   .footer-content {
     align-content: center;
@@ -15,11 +18,12 @@
 
   .copyright {
     border-top: 1px solid lightgoldenrodyellow;
-    padding-top: 14px;
-    // align-items: center;
-    // align-content: center;
+    padding: 10px;
     justify-content: center;
     margin-top: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   .footer-sub-header {
@@ -37,6 +41,8 @@
 
     .footer-sub-content {
       flex-direction: column;
+      position: absolute;
+      bottom: 12%;
 
       .social-media-icons {
         justify-content: center;
@@ -77,12 +83,12 @@
     }
   }
 
-
   @media screen and (max-width: 660px) {
-    // .footer-container {
-      padding: 18px;
-    // }
+    padding: 18px;
+    padding-top: 60%;
+
     .social-media-icons-container {
+
       flex-direction: column;
       align-items: center;
 
@@ -91,7 +97,7 @@
 
         .page-link {
           border: none;
-        }        
+        }
       }
 
       .kkr-logo {
