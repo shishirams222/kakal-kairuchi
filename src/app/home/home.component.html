@@ -2,11 +2,13 @@
   <div class="home-mobile-container" id="main">
     <div class="single-section" id="section-one">
       <div class="section-one">
-        <video autoplay muted>
-          <source src="assets/videos/bg_vada.mp4" type="video/mp4">
-        </video>
+        <span class="curtain">
+          <video autoplay muted loop>
+            <source src="assets/videos/bg_vada.mp4" type="video/mp4">
+          </video>
+        </span>
         <div class="welcome-text" *ngIf="showHeaderButtons">
-          <h1 class="header" *ngIf="showHeader">
+          <h1 class="header" [ngClass]="{'hands-of-sean': !scrollY || (scrollY >= 0) && (scrollY < sectionHeight/2)}" *ngIf="showHeader">
             {{header}}
           </h1>
           <h2 class="description">
@@ -15,13 +17,13 @@
         </div>
         <div class="btn-order-online-container" *ngIf="showHeaderButtons">
           <a href="https://kakalkairuchi.dotpe.in/">
-            <button class="btn-order-online">Order Now!</button>
+            <button class="home-btn btn-order-online">Order Now!</button>
           </a>
         </div>
       </div>
     </div>
     <div class="single-section">
-      <div id="slide-show-container1" class="slide-show-container">
+      <div id="slide-show-container1" class="slide-show-container slide-show-container1">
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products/jamoon.jpg">
         </div>
@@ -46,12 +48,12 @@
         <div id="image-eight" class="single-slide fade">
           <img src="assets/images/home_page_products/vangi_bath.jpeg">
         </div>
-        <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav" (click)="scrollPrevious()">&#10094;</button>
-        <button class="nav-button next" *ngIf="imgIndex < 6 && showNav" (click)="scrollNext()">&#10095;</button>
+        <button class="nav-button previous" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 > 0 && showNav" (click)="scrollPrevious1()">&#10094;</button>
+        <button class="nav-button next" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 < 6 && showNav" (click)="scrollNext1()">&#10095;</button>
       </div>
     </div>
     <div class="single-section">
-      <div id="slide-show-container2" class="slide-show-container">
+      <div id="slide-show-container2" class="slide-show-container slide-show-container2">
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products_2/cheese_ball.jpg">
         </div>
@@ -67,14 +69,59 @@
         <div id="image-five" class="single-slide fade">
           <img src="assets/images/home_page_products_2/masala_dosa.jpg">
         </div>
-        <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav && showLeft" (click)="scrollPrevious()">&#10094;</button>
-        <button class="nav-button next" *ngIf="imgIndex < 6 && showNav && showRight" (click)="scrollNext()">&#10095;</button>
+        <button class="nav-button previous" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 > 0 && showNav && showLeft" (click)="scrollPrevious2()">&#10094;</button>
+        <button class="nav-button next" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 < 4 && showNav && showRight" (click)="scrollNext2()">&#10095;</button>
+      </div>
+    </div>
+    <div class="single-section">
+      <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
+        <h1 class="header" style="font: normal normal normal 44px/1.4em 'playfair display',serif; text-align: center; color: orange;">
+          Kakal Opportunities
+        </h1>
+        <h2 class="opportunities" style="font: normal normal normal 36px/1.4em 'playfair display',serif;" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*4 - (sectionHeight/2)))">
+          Own A Franchise
+        </h2>
+        <h2 class="opportunities" style="font: normal normal normal 36px/1.4em 'playfair display',serif;" *ngIf="scrollY && (scrollY >= sectionHeight*4) && (scrollY < (sectionHeight*5 - (sectionHeight/2)))">
+          Investment
+        </h2>
+        <h2 class="opportunities" style="font: normal normal normal 36px/1.4em 'playfair display',serif;" *ngIf="scrollY && (scrollY >= sectionHeight*5) && (scrollY < (sectionHeight*6 - (sectionHeight/2)))">
+          Freelance/Jobs
+        </h2>
+      </div>
+      <div class="btn-order-online-container" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*4 - (sectionHeight/2)))">
+        <button class="home-btn btn-franchise">Franchise Enquiry</button>
+      </div>
+      <div class="btn-order-online-container" *ngIf="scrollY && (scrollY >= sectionHeight*4) && (scrollY < (sectionHeight*5 - (sectionHeight/2)))">
+        <button class="home-btn btn-franchise">Investment</button>
+      </div>
+      <div class="btn-order-online-container" *ngIf="scrollY && (scrollY >= sectionHeight*5) && (scrollY < (sectionHeight*6 - (sectionHeight/2)))">
+        <button class="home-btn btn-franchise">Freelance Jobs</button>
+      </div>
+      <!-- <span  >
+        Kakal Opportunities
+      </span> -->
+      <!-- <div id="franchise-details-section-1" *ngIf="(scrollY >= (sectionHeight*3) - 120)" style="display: flex; justify-content: center;"> -->
+        
+        <!-- <div class="franchise-details-header" style="display: flex; align-items: center;justify-content: center; flex-direction: column;">
+          <span style="font: normal normal normal 36px/1.4em 'playfair display',serif; text-align: center; color: floralwhite; position: relative; width: 100%;">
+            {{franchiseHeader}}
+          </span>
+        </div> -->
+      <!-- </div> -->
+    </div>
+    <div class="single-section" style="background-color: goldenrod;">
+      <div *ngIf="(scrollY >= sectionHeight*4)">
+        
+      </div>
+    </div>
+    <div class="single-section" style="background-color: brown;">
+      <div *ngIf="(scrollY >= sectionHeight*5)">
       </div>
     </div>
     <div class="single-section">
       <app-footer></app-footer>
     </div>
-</div>
+  </div>
   
 
 

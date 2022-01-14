@@ -9,64 +9,133 @@ import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@ang
 export class HomeComponent implements OnInit {
 
   constructor() { }
-  imgIndex: number = 0;
-  header: string = 'Hola';
+  imgIndex1: number = 0;
+  imgIndex2: number = 0;
+  scrollY: number = 0;
+  sectionHeight: number = 0;
+  header: string = 'Enriching Delicious Memories!';
   description: string = 'Welcome to KKR';
   showNav: boolean = false;
   showLeft: boolean = false;
   showRight: boolean = true;
   showHeaderButtons: boolean = true;
   showHeader: boolean = true;
+  opportunitiesHeader: string = '';
+  imagesList1: any = ['assets/images/home_page_products/jamoon.jpg',
+    'assets/images/home_page_products/chakli.jpeg',
+    'assets/images/home_page_products/jeera.png', 
+    'assets/images/home_page_products/rasam.jpeg', 
+    'assets/images/home_page_products/daniya.png',
+    'assets/images/home_page_products/idli_sambar_ina.jpeg',
+    'assets/images/home_page_products/bbb.png',
+    'assets/images/home_page_products/vangi_bath.jpeg'
+  ];
+  nameList1: any = ['Gulaab Jamoon', 'Chakli', 'Jeera', 'Rasam', 'Daniya', 'Idli Sambar', 'Bisibelebath', 'Vangibath'];
+
+
   ngOnInit(): void {
   }
 
-  scrollNext () {
-    const slideShowContainer = document.getElementById("slide-show-container");
+  scrollNext1 () {
+    const slideShowContainer = document.getElementById("slide-show-container1");
     const scrollValue = slideShowContainer?.scrollLeft || 0;
-    $(".slide-show-container").scrollLeft(scrollValue + 300);
-    this.imgIndex++;
+    $(".slide-show-container1").scrollLeft(scrollValue + 300);
+    this.imgIndex1++;
   };
 
-  scrollPrevious () {
-    const slideShowContainer = document.getElementById("slide-show-container");
+  scrollPrevious1 () {
+    const slideShowContainer = document.getElementById("slide-show-container1");
     const scrollValue = slideShowContainer?.scrollLeft || 0;
-    $(".slide-show-container").scrollLeft(scrollValue-300);
-    this.imgIndex--;
+    $(".slide-show-container1").scrollLeft(scrollValue-300);
+    this.imgIndex1--;
   };
+
+  scrollNext2 () {
+    const slideShowContainer = document.getElementById("slide-show-container2");
+    const scrollValue = slideShowContainer?.scrollLeft || 0;
+    $(".slide-show-container2").scrollLeft(scrollValue + 300);
+    this.imgIndex2++;
+  };
+
+  scrollPrevious2 () {
+    const slideShowContainer = document.getElementById("slide-show-container2");
+    const scrollValue = slideShowContainer?.scrollLeft || 0;
+    $(".slide-show-container2").scrollLeft(scrollValue-300);
+    this.imgIndex2--;
+  };
+
+  setOpacity (opacityValue: string) {
+    $(".welcome-text").css("opacity", opacityValue);
+    $(".btn-order-online-container").css("opacity", opacityValue);
+  };
+
+  // setScrollCSS (section: any, index: number, scrolly: number, stepper: number) {
+  //   console.log('index: ', index);
+  //   console.log('scrollHeight: ', section.scrollHeight);
+  //   console.log('offsetTop: ', section.offsetTop);
+  //   console.log('scrollY: ', scrolly);
+
+  //   if ((scrolly - (section.scrollHeight * index)) > ((section.scrollHeight * index) + stepper)) {
+  //     this.setOpacity('0.9');
+  //   }
+  //   if ((scrolly - (section.scrollHeight * index)) > ((section.scrollHeight * index) + (stepper * 2))) {
+  //     this.setOpacity('0.7');
+  //   }
+  //   if ((scrolly - (section.scrollHeight * index)) > ((section.scrollHeight * index) + (stepper * 3))) {
+  //     this.setOpacity('0.5');
+  //   }
+  //   if ((scrolly - (section.scrollHeight * index)) > ((section.scrollHeight * index) + (stepper * 4))) {
+  //     this.setOpacity('0.3');
+  //   }
+  //   if ((scrolly - (section.scrollHeight * index)) > ((section.scrollHeight * index) + (stepper * 5))) {
+  //     this.setOpacity('0.1');
+  //   }
+  // };
 
   ngAfterContentInit() {
     (() => {
-
       const app = document.getElementById("main");
       const section1 = document.getElementById("section-one");
+      const sections = document.getElementsByClassName("single-section");
       app && app.addEventListener('scroll', () => {
         const scrolly = app.scrollTop;
+        this.scrollY = scrolly;
         const sectionHeight = section1 && section1.scrollHeight || 0;
+        this.sectionHeight = sectionHeight;
         const stepper = sectionHeight/10;
+
+        
+        // if (sections && sections.length > 0) {
+        //   var index = 0;
+        //   for (index = 0; index < sections.length; index++) {
+        //     // console.log('section: ', index, sections[index]);
+        //     // if (scrolly > )
+        //     this.setScrollCSS(sections[index], index, scrolly, stepper);
+
+        //   }
+        // }
+
+
+
         if (scrolly > (sectionHeight - 1)) {
           this.showNav = true;
         } else {
           this.showNav = false;
         }
         if (scrolly > stepper) {
-          $(".welcome-text").css("opacity", "0.9");
-          $(".btn-order-online-container").css("opacity", "0.9");
+          this.setOpacity('0.9');
         }
         if (scrolly > (stepper * 2)) {
-          $(".welcome-text").css("opacity", "0.7");
-          $(".btn-order-online-container").css("opacity", "0.7");
+          this.setOpacity('0.7');
         }
         if (scrolly > (stepper * 3)) {
-          $(".welcome-text").css("opacity", "0.5");
-          $(".btn-order-online-container").css("opacity", "0.5");
+          this.setOpacity('0.5');
         }
         if (scrolly > (stepper * 4)) {
-          $(".welcome-text").css("opacity", "0.3");
-          $(".btn-order-online-container").css("opacity", "0.3");
+          this.setOpacity('0.3');
         }
         if (scrolly > (stepper * 5)) {
-          $(".welcome-text").css("opacity", "0.1");
-          $(".btn-order-online-container").css("opacity", "0.1");
+          this.setOpacity('0.1');
           $(".header").css("color", "floralwhite");
           $(".description").css("color", "orange");
           this.showHeader = true;
@@ -74,9 +143,9 @@ export class HomeComponent implements OnInit {
           this.description = 'Gulaab Jamoon';
         } else if (scrolly < (stepper * 5)) {
           this.showHeader = true;
-          this.header = 'Hola!';
+          this.header = 'Enriching Delicious Memories!';
           this.description = 'Welcome to KKR';
-          $(".header").css("color", "darkblue");
+          $(".header").css("color", "orange");
           $(".description").css("color", "black");
         }
         if (scrolly > ((stepper * 5) + sectionHeight)) {
@@ -84,24 +153,19 @@ export class HomeComponent implements OnInit {
           this.description = 'Cheese ball';
         }
         if (scrolly > (stepper * 6)) {
-          $(".welcome-text").css("opacity", "0.3");
-          $(".btn-order-online-container").css("opacity", "0.3");
+          this.setOpacity('0.3');
         }
         if (scrolly > (stepper * 7)) {
-          $(".welcome-text").css("opacity", "0.5");
-          $(".btn-order-online-container").css("opacity", "0.5");
+          this.setOpacity('0.5');
         }
         if (scrolly > (stepper * 8)) {
-          $(".welcome-text").css("opacity", "0.7");
-          $(".btn-order-online-container").css("opacity", "0.7");
+          this.setOpacity('0.7');
         }
         if (scrolly > (stepper * 9)) {
-          $(".welcome-text").css("opacity", "0.9");
-          $(".btn-order-online-container").css("opacity", "0.9");
+          this.setOpacity('0.9');
         }
         if (scrolly >= (stepper * 10)) {
-          $(".welcome-text").css("opacity", "1.0");
-          $(".btn-order-online-container").css("opacity", "1.0");
+          this.setOpacity('0.9');
         }
 
         if (scrolly >= ((sectionHeight * 3) - 140)) {
@@ -111,6 +175,9 @@ export class HomeComponent implements OnInit {
         if (scrolly < ((sectionHeight * 3) - 140)) {
           this.showHeaderButtons = true;
           this.showNav = true;
+        }
+        if (scrolly >= (sectionHeight * 3)) {
+          this.opportunitiesHeader = 'Own a Franchise';
         }
       });
 
@@ -125,44 +192,52 @@ export class HomeComponent implements OnInit {
           this.showLeft = false;
           this.showRight = true;
           this.showHeader = true;
+          this.imgIndex1 = 0;
         }
 
         if ((scrollX > 0) && (scrollX <= imageWidth)) {
           this.description = 'Chakli';
-          this.showLeft = false;
+          this.showLeft = true;
           this.showRight = true;
           this.showHeader = false;
+          this.imgIndex1 = 1;
         }
 
         if (scrollX > (imageWidth) && scrollX <= (imageWidth*2)) {
           this.description = 'Jeera powder';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex1 = 2;
         }
         if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
           this.description = 'Rasam powder';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex1 = 3;
         }
         if (scrollX > (imageWidth*3) && scrollX >= (imageWidth*4)) {
           this.description = 'Dhaniya Powder';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex1 = 4;
         }
         if (scrollX > (imageWidth*4) && scrollX >= (imageWidth*5)) {
           this.description = 'Sambar powder for Idli';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex1 = 5;
         }
         if (scrollX > (imageWidth*5) && scrollX >= (imageWidth*6)) {
           this.description = 'Bisibelebath powder';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex1 = 6;
         }
         if (scrollX > (imageWidth*6) && scrollX >= (imageWidth*7)) {
           this.description = 'Vangibath Powder';
           this.showLeft = true;
           this.showRight = false;
+          this.imgIndex1 = 7;
         }
       });
 
@@ -176,41 +251,46 @@ export class HomeComponent implements OnInit {
           this.showLeft = false;
           this.showRight = true;
           this.showHeader = true;
+          this.imgIndex2 = 0;
         }
 
         if ((scrollX > 0) && (scrollX <= imageWidth)) {
           this.description = 'Grilled garlic Paneer';
-          this.showLeft = false;
+          this.showLeft = true;
           this.showRight = true;
           this.showHeader = false;
+          this.imgIndex2 = 1;
         }
 
         if (scrollX > (imageWidth) && scrollX <= (imageWidth*2)) {
           this.description = 'BBQ Paneer';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex2 = 2;
         }
         if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
           this.description = 'Peas cutlet';
           this.showLeft = true;
           this.showRight = true;
+          this.imgIndex2 = 3;
         }
         if (scrollX > (imageWidth*3) && scrollX >= (imageWidth*4)) {
           this.description = 'Masala Dosa';
           this.showLeft = true;
           this.showRight = true;
-        }
-        if (scrollX > (imageWidth*4) && scrollX >= (imageWidth*5)) {
-          this.description = 'Sambar powder for Idli';
-          this.showLeft = true;
-          this.showRight = true;
-        }
-        if (scrollX > (imageWidth*5) && scrollX >= (imageWidth*6)) {
-          this.description = 'Bisibelebath powder';
-          this.showLeft = true;
-          this.showRight = true;
+          this.imgIndex2 = 4;
         }
       });
+
+      // const sections = document.getElementsByClassName("single-section");
+      // if (sections && sections.length > 0) {
+      //   var index = 0;
+      //   for (index = 0; index < sections.length; index++) {
+      //     // console.log('section: ', index, sections[index]);
+      //     this.setScrollCSS(sections[index]);
+      //   }
+      // }
+      
     })()
   };
 
