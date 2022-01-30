@@ -3,12 +3,12 @@
 .home-container {
   background-color: #201e1e;
 
-  .side-nav-parent {
+  // .side-nav-parent {
     // position: absolute;
     // top: 24px;
     // left: 24px;
     // z-index: 5;
-  }
+  // }
 
   .landing-view {
     display: flex;
@@ -76,7 +76,7 @@
 
       .header {
         padding: 42px;
-        font-size: 38px;
+        font-size: 36px;
         color: #f07138; 
         text-align: center;
       }
@@ -87,7 +87,7 @@
 
       .description {
         color: rgb(0, 0, 0);
-        font: normal normal normal 38px/1.4em 'playfair display',serif;
+        font: normal normal normal 36px/1.4em 'playfair display',serif;
       }
 
       &.franchise {

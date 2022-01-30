@@ -9,14 +9,13 @@
   </div>
 
   <div class="home-mobile-container" id="main">    
-    <div class="single-section" id="section_one">
+    <div class="single-section" id="section-one">
       <div class="section-one">
         <span class="curtain">
           <video autoplay muted loop>
             <source src="assets/videos/bg_vada.mp4" type="video/mp4">
           </video>
         </span>
-        <!-- [ngClass]="{'hands-of-sean': !scrollY || (scrollY >= 0) && (scrollY < sectionHeight/2)}"  -->
         <div class="welcome-text" *ngIf="showHeaderButtons">
           <h1 class="header hands-of-sean" [ngClass]="{'text-white': (scrollY > sectionHeight - 2) && (scrollY < ((sectionHeight * 3) - 220))}" *ngIf="showHeader">
             {{header}}
@@ -32,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="single-section" #section_two id="section_two">
+    <div class="single-section" id="section-two">
       <div id="slide-show-container1" class="slide-show-container slide-show-container1">
         <!-- <p class="product-details">
           this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
@@ -89,7 +88,7 @@
         <button class="nav-button next" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 < 6 && showNav" (click)="scrollNext1()">&#10095;</button>
       </div>
     </div>
-    <div class="single-section" id="section_three">
+    <div class="single-section">
       <div id="slide-show-container2" class="slide-show-container slide-show-container2">
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products_2/cheese_ball.jpg">
@@ -110,7 +109,7 @@
         <button class="nav-button next" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 < 4 && showNav && showRight" (click)="scrollNext2()">&#10095;</button>
       </div>
     </div>
-    <div class="single-section" id="section_four">
+    <div class="single-section">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
         <h1 class="header hands-of-sean" style="color: #f07138;">
           Kakal Opportunities
@@ -228,7 +227,7 @@
     get the menu ready
     menu to be in black and white basic for now. Font size and color, bg color to be decided in next call
     change font color to logo color
-    font size: 38px, use hand of sean for "all" the heading, description, form
+    font size: 36px from 30px, use hand of sean for "all" the heading, description, form
     increase font size of prduct names for pages without header
 
 

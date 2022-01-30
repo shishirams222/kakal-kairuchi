@@ -9,7 +9,6 @@ import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@ang
 export class HomeComponent implements OnInit {
 
   constructor() { }
-  isOpen: boolean = false;
   imgIndex1: number = 0;
   imgIndex2: number = 0;
   scrollY: number = 0;
@@ -23,7 +22,7 @@ export class HomeComponent implements OnInit {
   showHeaderButtons: boolean = true;
   showHeader: boolean = true;
   opportunitiesHeader: string = '';
-  showProductDetails: boolean = false;
+  // showProductDetails: boolean = false;
   productDetails: string = '';
   imagesList1: any = ['assets/images/home_page_products/jamoon.jpg',
     'assets/images/home_page_products/chakli.jpeg',
@@ -77,7 +76,7 @@ export class HomeComponent implements OnInit {
     console.log("Clicked delete: ", value);
     var element = document.getElementById(value);
     console.log('ele: ', element);
-    document.querySelector('main')?.scrollIntoView({
+    document.querySelector('section-one')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
@@ -115,6 +114,7 @@ export class HomeComponent implements OnInit {
         this.scrollY = scrolly;
         const sectionHeight = section1 && section1.scrollHeight || 0;
         this.sectionHeight = sectionHeight;
+        console.log('sectionHeight: ', sectionHeight);
         const stepper = sectionHeight/10;
 
         
@@ -150,16 +150,18 @@ export class HomeComponent implements OnInit {
           $(".header").css("color", "floralwhite");
           $(".description").css("color", "#f07138");
           this.showHeader = true;
+          console.log('settingggg');
+          this.showHeaderButtons = true;
           this.header = 'Our Products';
           this.description = 'Gulaab Jamoon';
           this.productDetails = 'Sugar, Refined oil, Kova, Maida, Cooking soda'; 
           // todo shishi: check if this is needed, clean up html
-          this.showProductDetails = true;
+          // this.showProductDetails = true;
         } else if (scrolly < (stepper * 5)) {
           this.showHeader = true;
           this.header = 'Enriching Delicious Memories!';
           this.description = '';
-          this.showProductDetails = false;
+          // this.showProductDetails = false;
           $(".header").css("color", "#f07138");
           $(".description").css("color", "black");
         }
@@ -232,7 +234,7 @@ export class HomeComponent implements OnInit {
           this.showHeader = true;
           $(".header").css("color", "floralwhite");
           this.imgIndex1 = 0;
-          this.showProductDetails = true;
+          // this.showProductDetails = true;
         }
 
         if ((scrollX > 0) && (scrollX <= imageWidth)) {
