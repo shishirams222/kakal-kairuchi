@@ -4,9 +4,12 @@
       this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
     </p>
   </div> -->
+  <div class="side-nav-parent">
+    <app-side-nav (someEvent)="deletePhone($event)"></app-side-nav>
+  </div>
 
   <div class="home-mobile-container" id="main">    
-    <div class="single-section" id="section-one">
+    <div class="single-section" id="section_one">
       <div class="section-one">
         <span class="curtain">
           <video autoplay muted loop>
@@ -15,15 +18,10 @@
         </span>
         <!-- [ngClass]="{'hands-of-sean': !scrollY || (scrollY >= 0) && (scrollY < sectionHeight/2)}"  -->
         <div class="welcome-text" *ngIf="showHeaderButtons">
-          <h1 class="header hands-of-sean" *ngIf="showHeader">
-            
+          <h1 class="header hands-of-sean" [ngClass]="{'text-white': (scrollY > sectionHeight - 2) && (scrollY < ((sectionHeight * 3) - 220))}" *ngIf="showHeader">
             {{header}}
-
           </h1>
           <h2 class="description">
-            <!-- not needed -->
-            <!--  -->
-            <!-- name and description: Kailash parbat -->
             {{description}}
           </h2>
         </div>
@@ -34,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="single-section">
+    <div class="single-section" #section_two id="section_two">
       <div id="slide-show-container1" class="slide-show-container slide-show-container1">
         <!-- <p class="product-details">
           this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
@@ -91,7 +89,7 @@
         <button class="nav-button next" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 < 6 && showNav" (click)="scrollNext1()">&#10095;</button>
       </div>
     </div>
-    <div class="single-section">
+    <div class="single-section" id="section_three">
       <div id="slide-show-container2" class="slide-show-container slide-show-container2">
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products_2/cheese_ball.jpg">
@@ -112,7 +110,7 @@
         <button class="nav-button next" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 < 4 && showNav && showRight" (click)="scrollNext2()">&#10095;</button>
       </div>
     </div>
-    <div class="single-section">
+    <div class="single-section" id="section_four">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
         <h1 class="header hands-of-sean" style="color: #f07138;">
           Kakal Opportunities

@@ -1,6 +1,14 @@
 // KP font: font: normal normal normal 36px/1.4em 'playfair display',serif;
+
 .home-container {
   background-color: #201e1e;
+
+  .side-nav-parent {
+    // position: absolute;
+    // top: 24px;
+    // left: 24px;
+    // z-index: 5;
+  }
 
   .landing-view {
     display: flex;
@@ -29,7 +37,7 @@
       // position: sticky;
       // top: 0;
       opacity: 0.8;
-      background-color: lightgrey;
+      // background-color: lightgrey;
     }
 
     .single-section {
@@ -71,6 +79,10 @@
         font-size: 38px;
         color: #f07138; 
         text-align: center;
+      }
+
+      .text-white {
+        color: floralwhite;
       }
 
       .description {

@@ -9,6 +9,7 @@ import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@ang
 export class HomeComponent implements OnInit {
 
   constructor() { }
+  isOpen: boolean = false;
   imgIndex1: number = 0;
   imgIndex2: number = 0;
   scrollY: number = 0;
@@ -70,6 +71,15 @@ export class HomeComponent implements OnInit {
   setOpacity (opacityValue: string) {
     $(".welcome-text").css("opacity", opacityValue);
     $(".btn-order-online-container").css("opacity", opacityValue);
+  };
+
+  public deletePhone (value: string): void {
+    console.log("Clicked delete: ", value);
+    var element = document.getElementById(value);
+    console.log('ele: ', element);
+    document.querySelector('main')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
 
   // setScrollCSS (section: any, index: number, scrolly: number, stepper: number) {
@@ -142,6 +152,7 @@ export class HomeComponent implements OnInit {
           this.showHeader = true;
           this.header = 'Our Products';
           this.description = 'Gulaab Jamoon';
+          this.productDetails = 'Sugar, Refined oil, Kova, Maida, Cooking soda'; 
           // todo shishi: check if this is needed, clean up html
           this.showProductDetails = true;
         } else if (scrolly < (stepper * 5)) {
