@@ -1,5 +1,11 @@
 <div class="home-container">
-  <div class="home-mobile-container" id="main">
+  <!-- <div class="section-content">
+    <p class="product-details" *ngIf="showProductDetails">
+      this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
+    </p>
+  </div> -->
+
+  <div class="home-mobile-container" id="main">    
     <div class="single-section" id="section-one">
       <div class="section-one">
         <span class="curtain">
@@ -7,11 +13,17 @@
             <source src="assets/videos/bg_vada.mp4" type="video/mp4">
           </video>
         </span>
+        <!-- [ngClass]="{'hands-of-sean': !scrollY || (scrollY >= 0) && (scrollY < sectionHeight/2)}"  -->
         <div class="welcome-text" *ngIf="showHeaderButtons">
-          <h1 class="header" [ngClass]="{'hands-of-sean': !scrollY || (scrollY >= 0) && (scrollY < sectionHeight/2)}" *ngIf="showHeader">
+          <h1 class="header hands-of-sean" *ngIf="showHeader">
+            
             {{header}}
+
           </h1>
           <h2 class="description">
+            <!-- not needed -->
+            <!--  -->
+            <!-- name and description: Kailash parbat -->
             {{description}}
           </h2>
         </div>
@@ -24,29 +36,56 @@
     </div>
     <div class="single-section">
       <div id="slide-show-container1" class="slide-show-container slide-show-container1">
+        <!-- <p class="product-details">
+          this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
+        </p> -->
         <div id="image-one" class="single-slide fade">
           <img src="assets/images/home_page_products/jamoon.jpg">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-two" class="single-slide fade">
           <img src="assets/images/home_page_products/chakli.jpeg">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-three" class="single-slide fade">
           <img src="assets/images/home_page_products/jeera.png">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-four" class="single-slide fade">
           <img src="assets/images/home_page_products/rasam.jpeg">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-five" class="single-slide fade">
           <img src="assets/images/home_page_products/daniya.png">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-six" class="single-slide fade">
           <img src="assets/images/home_page_products/idli_sambar_ina.jpeg">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-seven" class="single-slide fade">
           <img src="assets/images/home_page_products/bbb.png">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <div id="image-eight" class="single-slide fade">
           <img src="assets/images/home_page_products/vangi_bath.jpeg">
+          <p class="product-details">
+            {{productDetails}}
+          </p>
         </div>
         <button class="nav-button previous" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 > 0 && showNav" (click)="scrollPrevious1()">&#10094;</button>
         <button class="nav-button next" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 < 6 && showNav" (click)="scrollNext1()">&#10095;</button>
@@ -75,7 +114,7 @@
     </div>
     <div class="single-section">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
-        <h1 class="header" style="font: normal normal normal 44px/1.4em 'playfair display',serif; text-align: center; color: orange;">
+        <h1 class="header hands-of-sean" style="color: #f07138;">
           Kakal Opportunities
         </h1>
         <h2 class="opportunities" style="font: normal normal normal 36px/1.4em 'playfair display',serif;" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*4 - (sectionHeight/2)))">
@@ -185,4 +224,23 @@
   <!-- <div>
     <p-image src="assets/images/uniqueness_of_kkr.png" alt="Image" width="1920"></p-image>
   </div> -->
+
+  <!-- , 
+    notes for me:
+    get the menu ready
+    menu to be in black and white basic for now. Font size and color, bg color to be decided in next call
+    change font color to logo color
+    font size: 38px, use hand of sean for "all" the heading, description, form
+    increase font size of prduct names for pages without header
+
+
+    things to be delivered:
+    Content:
+    our products header, 
+    our products-2 header, 
+    
+    Kakal opp(3) - design + form inputs, 
+    about us, 
+    social media links 
+  -->
 </div>

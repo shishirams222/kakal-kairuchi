@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 // @import "../node_modules/primeflex/primeflex.scss";
-$kkr-primary: #f1863b;
+$kkr-primary: #f07138;
+
+@font-face {
+  font-family: "hand_of_sean";
+  src: local("hand_of_sean"), url(./assets/fonts/handsean.ttf) format("truetype");
+}
 
 .container {
   height: 100%;

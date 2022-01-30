@@ -1,3 +1,4 @@
+// KP font: font: normal normal normal 36px/1.4em 'playfair display',serif;
 .home-container {
   background-color: #201e1e;
 
@@ -5,18 +6,37 @@
     display: flex;
   }
 
+  .section-content {
+    // sticky elements
+    position: sticky;
+    top: 65%;
+
+    .product-details {
+      font-size: 16px;
+      max-width: 100%;
+      text-align: center;
+      color: #f07138;
+      z-index: 1;
+    }
+  }
+
   .home-mobile-container {
     max-height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
+    .curtain {
+      // position: sticky;
+      // top: 0;
+      opacity: 0.8;
+      background-color: lightgrey;
+    }
+
     .single-section {
-      // background-attachment: fixed;
       scroll-snap-align: start;
       min-height: 100vh;
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      // align-items: center;
       align-items: stretch;
       display: flex;
       flex-direction: column;
@@ -33,18 +53,10 @@
       }
 
       .hands-of-sean {
-        font-family: 'Hand Of Sean', sans-serif;
-        color: orange;
+        font-family: 'hand_of_sean', sans-serif;
+        color: #f07138;
       }
 
-      .curtain {
-        // position: absolute;
-        // height: 100%;
-        // width: 100%;
-        // opacity: 0.4;
-        // background-color: black;
-        // z-index: 0;
-      }
     }
 
     .welcome-text {
@@ -55,13 +67,15 @@
       text-align: center;
 
       .header {
-        padding: 20px;
-        font-size: 32px; color: orange; 
+        padding: 42px;
+        font-size: 38px;
+        color: #f07138; 
         text-align: center;
       }
 
       .description {
-        font-size: 20px; color: black;
+        color: rgb(0, 0, 0);
+        font: normal normal normal 38px/1.4em 'playfair display',serif;
       }
 
       &.franchise {
@@ -71,7 +85,7 @@
 
     .btn-order-online-container {
       position: absolute;
-      bottom: 106px;
+      bottom: 90px;
       z-index: 2;
       width: 100%;
       max-width: 500px;
@@ -82,14 +96,14 @@
         min-height: 44px;
         min-width: 100%;
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 500;
       }
 
       .btn-order-online {
-        color: #f1863b;
+        color: #f07138;
         background-color: lightcyan;
-        border: 2px solid #f1863b;
+        border: 2px solid #f07138;
       }
 
       .btn-franchise {
@@ -97,7 +111,6 @@
         background-color: darkslategray;
         border: 2px solid floralwhite;
       }
-
 
     }
 
@@ -113,13 +126,12 @@
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
 
+
       .single-slide {
         max-height: 100vh;
         min-height: 100vh;
         display: flex;
         align-items: center;
-
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -127,6 +139,16 @@
         min-width: 100vw;
         scroll-snap-align: start;
         font-size: 3.5ch;
+        // todo shishi: adding this for fitting product details, remove this once that is made sticky
+        flex-direction: column;
+
+        .product-details {
+          font-size: 16px;
+          color: #f07138;
+          text-align: center;
+          padding: 24px;
+          margin-top: -40px;
+        }
       }
       
       .nav-button {

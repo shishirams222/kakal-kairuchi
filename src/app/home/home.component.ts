@@ -12,15 +12,18 @@ export class HomeComponent implements OnInit {
   imgIndex1: number = 0;
   imgIndex2: number = 0;
   scrollY: number = 0;
+  activeSection: number = 0;
   sectionHeight: number = 0;
   header: string = 'Enriching Delicious Memories!';
-  description: string = 'Welcome to KKR';
+  description: string = '';
   showNav: boolean = false;
   showLeft: boolean = false;
   showRight: boolean = true;
   showHeaderButtons: boolean = true;
   showHeader: boolean = true;
   opportunitiesHeader: string = '';
+  showProductDetails: boolean = false;
+  productDetails: string = '';
   imagesList1: any = ['assets/images/home_page_products/jamoon.jpg',
     'assets/images/home_page_products/chakli.jpeg',
     'assets/images/home_page_products/jeera.png', 
@@ -115,8 +118,6 @@ export class HomeComponent implements OnInit {
         //   }
         // }
 
-
-
         if (scrolly > (sectionHeight - 1)) {
           this.showNav = true;
         } else {
@@ -137,15 +138,18 @@ export class HomeComponent implements OnInit {
         if (scrolly > (stepper * 5)) {
           this.setOpacity('0.1');
           $(".header").css("color", "floralwhite");
-          $(".description").css("color", "orange");
+          $(".description").css("color", "#f07138");
           this.showHeader = true;
           this.header = 'Our Products';
           this.description = 'Gulaab Jamoon';
+          // todo shishi: check if this is needed, clean up html
+          this.showProductDetails = true;
         } else if (scrolly < (stepper * 5)) {
           this.showHeader = true;
           this.header = 'Enriching Delicious Memories!';
-          this.description = 'Welcome to KKR';
-          $(".header").css("color", "orange");
+          this.description = '';
+          this.showProductDetails = false;
+          $(".header").css("color", "#f07138");
           $(".description").css("color", "black");
         }
         if (scrolly > ((stepper * 5) + sectionHeight)) {
@@ -179,6 +183,28 @@ export class HomeComponent implements OnInit {
         if (scrolly >= (sectionHeight * 3)) {
           this.opportunitiesHeader = 'Own a Franchise';
         }
+
+        // if (scrolly <= sectionHeight) {
+        //   this.activeSection = 1;
+        // }
+        // if ((scrolly <= (sectionHeight * 2)) && (scrolly > sectionHeight)) {
+        //   this.activeSection = 2;
+        // }
+        // if ((scrolly <= (sectionHeight * 3)) && (scrolly > (sectionHeight * 2))) {
+        //   this.activeSection = 3;
+        // }
+        // if ((scrolly <= (sectionHeight * 4)) && (scrolly > (sectionHeight * 3))) {
+        //   this.activeSection = 4;
+        // }
+        // if ((scrolly <= (sectionHeight * 5)) && (scrolly > (sectionHeight * 4))) {
+        //   this.activeSection = 5;
+        // }
+        // if ((scrolly <= (sectionHeight * 6)) && (scrolly > (sectionHeight * 5))) {
+        //   this.activeSection = 6;
+        // }
+        // if ((scrolly <= (sectionHeight * 7)) && (scrolly > (sectionHeight * 6))) {
+        //   this.activeSection = 7;
+        // }
       });
 
       const slideShowContainer = document.getElementById("slide-show-container1");
@@ -188,29 +214,35 @@ export class HomeComponent implements OnInit {
         const imageWidth = image1?.scrollWidth || 0;
 
         if ((scrollX === 0)) {
-          this.description = 'Gulaab Jamoon';
+          this.description = 'Gulab Jamun';
+          this.productDetails = 'Sugar, Refined oil, Kova, Maida, Cooking soda'; 
           this.showLeft = false;
           this.showRight = true;
           this.showHeader = true;
+          $(".header").css("color", "floralwhite");
           this.imgIndex1 = 0;
+          this.showProductDetails = true;
         }
 
         if ((scrollX > 0) && (scrollX <= imageWidth)) {
-          this.description = 'Chakli';
+          this.description = 'Chakli Sticks';
+          this.productDetails = 'Rice, Urad Dal, Chilli Powder, Refined Oil, White Til, Ajwain (om), Jeera, Fenugreek (Meethi) seeds';
           this.showLeft = true;
           this.showRight = true;
           this.showHeader = false;
           this.imgIndex1 = 1;
         }
 
-        if (scrollX > (imageWidth) && scrollX <= (imageWidth*2)) {
+        if (scrollX > (imageWidth) && scrollX <= (imageWidth * 2)) {
           this.description = 'Jeera powder';
+          this.productDetails = 'Freshly grinded pure Jeera';
           this.showLeft = true;
           this.showRight = true;
           this.imgIndex1 = 2;
         }
         if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
           this.description = 'Rasam powder';
+          this.productDetails = 'Red Chilli, Coriander (Dhaniya) seeds, Cumin (Jeera), Fenugreek (Meethi) seeds, Refined Oil, Black Pepper, Mustard, Hing';
           this.showLeft = true;
           this.showRight = true;
           this.imgIndex1 = 3;
@@ -251,6 +283,7 @@ export class HomeComponent implements OnInit {
           this.showLeft = false;
           this.showRight = true;
           this.showHeader = true;
+          $(".header").css("color", "floralwhite");
           this.imgIndex2 = 0;
         }
 
