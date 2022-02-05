@@ -1,14 +1,25 @@
-<div class="home-container">
-  <!-- <div class="section-content">
-    <p class="product-details" *ngIf="showProductDetails">
-      this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
-    </p>
-  </div> -->
+<div class="home-container" id="main">
   <div class="side-nav-parent">
     <app-side-nav (someEvent)="deletePhone($event)"></app-side-nav>
   </div>
 
-  <div class="home-mobile-container" id="main">    
+  <div class="section-content" id="section-content" [ngClass]="{'z-index-0': activeSection === 2 || activeSection === 3}">
+    <div class="home-content" *ngIf="activeSection < 4" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+      <span class="header hands-of-sean">
+        {{header}}
+      </span>
+      <div class="btn-order-online-container" *ngIf="activeSection === 1">
+        <a href="https://kakalkairuchi.dotpe.in/">
+          <button class="home-btn btn-order-online">Order Now!</button>
+        </a>
+      </div>
+      <span class="page-description" *ngIf="activeSection === 2 || activeSection === 3">
+        {{description}}  
+      </span>
+    </div>
+  </div>
+
+  <div class="home-mobile-container">
     <div class="single-section" id="section-one">
       <div class="section-one">
         <span class="curtain">
@@ -16,100 +27,25 @@
             <source src="assets/videos/bg_vada.mp4" type="video/mp4">
           </video>
         </span>
-        <div class="welcome-text" *ngIf="showHeaderButtons">
-          <h1 class="header hands-of-sean" [ngClass]="{'text-white': (scrollY > sectionHeight - 2) && (scrollY < ((sectionHeight * 3) - 220))}" *ngIf="showHeader">
+        <!-- <div class="welcome-text" *ngIf="showHeaderButtons">
+          <h1 class="header hands-of-sean" *ngIf="activeSection === 1" [ngClass]="{'text-black': (scrollY > sectionHeight - 2) && (scrollY < ((sectionHeight * 3) - 220))}">
             {{header}}
           </h1>
-          <h2 class="description">
-            {{description}}
-          </h2>
-        </div>
-        <div class="btn-order-online-container" *ngIf="showHeaderButtons">
+        </div> -->
+        <!-- <div class="btn-order-online-container" *ngIf="showHeaderButtons">
           <a href="https://kakalkairuchi.dotpe.in/">
             <button class="home-btn btn-order-online">Order Now!</button>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="single-section" id="section-two">
-      <div id="slide-show-container1" class="slide-show-container slide-show-container1">
-        <!-- <p class="product-details">
-          this is test details increase font size for pages without header increase font size for pages without header increase font size for pages without header
-        </p> -->
-        <div id="image-one" class="single-slide fade">
-          <img src="assets/images/home_page_products/jamoon.jpg">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-two" class="single-slide fade">
-          <img src="assets/images/home_page_products/chakli.jpeg">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-three" class="single-slide fade">
-          <img src="assets/images/home_page_products/jeera.png">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-four" class="single-slide fade">
-          <img src="assets/images/home_page_products/rasam.jpeg">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-five" class="single-slide fade">
-          <img src="assets/images/home_page_products/daniya.png">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-six" class="single-slide fade">
-          <img src="assets/images/home_page_products/idli_sambar_ina.jpeg">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-seven" class="single-slide fade">
-          <img src="assets/images/home_page_products/bbb.png">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <div id="image-eight" class="single-slide fade">
-          <img src="assets/images/home_page_products/vangi_bath.jpeg">
-          <p class="product-details">
-            {{productDetails}}
-          </p>
-        </div>
-        <button class="nav-button previous" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 > 0 && showNav" (click)="scrollPrevious1()">&#10094;</button>
-        <button class="nav-button next" *ngIf="(scrollY >= sectionHeight && scrollY < sectionHeight*2) && imgIndex1 < 6 && showNav" (click)="scrollNext1()">&#10095;</button>
-      </div>
+      <app-slide-show [imagesList]="slideShow1Data"></app-slide-show>
     </div>
-    <div class="single-section">
-      <div id="slide-show-container2" class="slide-show-container slide-show-container2">
-        <div id="image-one" class="single-slide fade">
-          <img src="assets/images/home_page_products_2/cheese_ball.jpg">
-        </div>
-        <div id="image-two" class="single-slide fade">
-          <img src="assets/images/home_page_products_2/grilled_garlic_panner.jpg">
-        </div>
-        <div id="image-three" class="single-slide fade">
-          <img src="assets/images/home_page_products_2/bbq_paneer_tikka.jpg">
-        </div>
-        <div id="image-four" class="single-slide fade">
-          <img src="assets/images/home_page_products_2/peas_cuttlet.jpg">
-        </div>
-        <div id="image-five" class="single-slide fade">
-          <img src="assets/images/home_page_products_2/masala_dosa.jpg">
-        </div>
-        <button class="nav-button previous" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 > 0 && showNav && showLeft" (click)="scrollPrevious2()">&#10094;</button>
-        <button class="nav-button next" *ngIf="(scrollY >= sectionHeight*2) && imgIndex2 < 4 && showNav && showRight" (click)="scrollNext2()">&#10095;</button>
-      </div>
+    <div class="single-section" id="section-three">
+      <app-slide-show [imagesList]="slideShow2Data"></app-slide-show>
     </div>
-    <div class="single-section">
+    <!-- <div class="single-section">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
         <h1 class="header hands-of-sean" style="color: #f07138;">
           Kakal Opportunities
@@ -133,19 +69,8 @@
       <div class="btn-order-online-container" *ngIf="scrollY && (scrollY >= sectionHeight*5) && (scrollY < (sectionHeight*6 - (sectionHeight/2)))">
         <button class="home-btn btn-franchise">Freelance Jobs</button>
       </div>
-      <!-- <span  >
-        Kakal Opportunities
-      </span> -->
-      <!-- <div id="franchise-details-section-1" *ngIf="(scrollY >= (sectionHeight*3) - 120)" style="display: flex; justify-content: center;"> -->
-        
-        <!-- <div class="franchise-details-header" style="display: flex; align-items: center;justify-content: center; flex-direction: column;">
-          <span style="font: normal normal normal 36px/1.4em 'playfair display',serif; text-align: center; color: floralwhite; position: relative; width: 100%;">
-            {{franchiseHeader}}
-          </span>
-        </div> -->
-      <!-- </div> -->
-    </div>
-    <div class="single-section" style="background-color: goldenrod;">
+    </div> -->
+    <!-- <div class="single-section" style="background-color: goldenrod;">
       <div *ngIf="(scrollY >= sectionHeight*4)">
         
       </div>
@@ -153,7 +78,7 @@
     <div class="single-section" style="background-color: brown;">
       <div *ngIf="(scrollY >= sectionHeight*5)">
       </div>
-    </div>
+    </div> -->
     <div class="single-section">
       <app-footer></app-footer>
     </div>

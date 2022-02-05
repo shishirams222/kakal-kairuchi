@@ -4,23 +4,26 @@
     <div class="side-nav-back-drop" (click)="isOpen = false" style="width: 100vw; height: 100vh; background-color: lightgray; opacity: 0.5;">
     </div>
     <div class="side-nav-content">
-      <p-image src="assets/images/full_logo_black_orange.png" alt="Image" width="110"></p-image>
+      <!-- <p-image src="assets/images/full_logo_black_orange.png" alt="Image" width="110" routerLink="/home"></p-image> -->
       <ul class="is-flex is-flex-direction-column is-align-content-space-between">
         <li routerLink="/home" class="side-nav-item">
-          <a (click)="isOpen = false; callParent('section_one')">Home</a>
+          <a (click)="callParent('section-one'); isOpen = false" class="page-label" style="color: black;">Home</a>
+          <span class="divider" style="width: 50px; border-bottom: 1px solid black; max-width: 50px; min-width: 50px;"></span>
         </li>
         <li class="side-nav-item">
-          <a (click)="callParent('section_two');isOpen = false;">Our Products</a>
+          <a (click)="callParent('section-two');isOpen = false;" class="page-label">Our Products</a>
+          <span class="divider" style="width: 50px; border-bottom: 1px solid black; max-width: 50px; min-width: 50px;"></span>
         </li>
         <li class="side-nav-item">
-          <a (click)="isOpen = false; callParent('section_three')">Our Products 2</a>
+          <a (click)="callParent('section-three');isOpen = false;" class="page-label">Our Products 2</a>
+          <span class="divider" style="width: 50px; border-bottom: 1px solid black; max-width: 50px; min-width: 50px;"></span>
         </li>
-        <li class="side-nav-item">
+        <!-- <li class="side-nav-item">
           <a (click)="isOpen = false; callParent('section_four')">Franchise</a>
         </li>
         <li class="side-nav-item">
           <a (click)="isOpen = false; callParent('contact_us')">Contact Us</a>
-        </li>
+        </li> -->
         <!-- <li routerLink="/about_us" class="side-nav-item">
           <a (click)="isOpen = false">About Us</a>
         </li>

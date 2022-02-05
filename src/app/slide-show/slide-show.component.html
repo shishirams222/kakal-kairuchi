@@ -1,40 +1,24 @@
-<!-- <div id="id" class="slide-show-container">
-  <div *ngIf="imagesList[0] && imagesList[0].length > 0" id="image-zero" class="single-slide fade">
-    <img src="imagesList[0]">
+<div id="slide-show-container" class="slide-show-container">
+  <div class="single-slide transparent">
+    <!-- {{slideShowInfo}} -->
   </div>
-  <div *ngIf="imagesList[1] && imagesList[1].length > 0" id="image-one" class="single-slide fade">
-    <img src="imagesList[1]">
+
+  <div *ngFor="let image of imagesList; let i = index">
+    <div id="image-one" class="single-slide fade">
+      <div class="img-container">
+        <img src="{{image.imgUrl}}">
+      </div>
+      <div class="description-container" style="width: 100%;">
+        <p class="image-name">
+          {{image.productName}}
+        </p>
+        <div class="divider"></div>
+        <p class="product-details">
+          {{image.description}}
+        </p>
+      </div>
+    </div>
+    <!-- <button class="nav-button prev" (click)="scrollPrevious()">&#10094;</button>
+    <button class="nav-button next" *ngIf="i < (imagesList.length - 1)" (click)="scrollNext()">&#10095;</button> -->
   </div>
-  <div *ngIf="imagesList[2] && imagesList[2].length > 0" id="image-two" class="single-slide fade">
-    <img src="imagesList[2]">
-  </div>
-  <div *ngIf="imagesList[3] && imagesList[3].length > 0" id="image-three" class="single-slide fade">
-    <img src="imagesList[3]">
-  </div>
-  <div *ngIf="imagesList[4] && imagesList[4].length > 0" id="image-four" class="single-slide fade">
-    <img src="imagesList[4]">
-  </div>
-  <div *ngIf="imagesList[5] && imagesList[5].length > 0" id="image-five" class="single-slide fade">
-    <img src="imagesList[5]">
-  </div>
-  <div *ngIf="imagesList[6] && imagesList[6].length > 0" id="image-six" class="single-slide fade">
-    <img src="imagesList[6]">
-  </div>
-  <div *ngIf="imagesList[7] && imagesList[7].length > 0" id="image-seven" class="single-slide fade">
-    <img src="imagesList[7]">
-  </div>
-  <div *ngIf="imagesList[8] && imagesList[8].length > 0" id="image-eight" class="single-slide fade">
-    <img src="imagesList[8]">
-  </div>
-  <div *ngIf="imagesList[9] && imagesList[9].length > 0" id="image-nine" class="single-slide fade">
-    <img src="imagesList[9]">
-  </div>
-  <div *ngIf="imagesList[10] && imagesList[10].length > 0" id="image-ten" class="single-slide fade">
-    <img src="imagesList[10]">
-  </div>
-  <div *ngIf="imagesList[11] && imagesList[11].length > 0" id="image-eleven" class="single-slide fade">
-    <img src="imagesList[11]">
-  </div>
-  <button class="nav-button previous" *ngIf="imgIndex > 0 && showNav && showLeft" (click)="scrollPrevious()">&#10094;</button>
-  <button class="nav-button next" *ngIf="imgIndex < 6 && showNav && showRight" (click)="scrollNext()">&#10095;</button>
-</div> -->
+</div>
