@@ -8,7 +8,7 @@
 
   <div class="section-content" id="section-content" [ngClass]="{'z-index-0': activeSection === 2 || activeSection === 3}">
     <div class="home-content" *ngIf="activeSection < 4" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
-      <span class="header hands-of-sean">
+      <span class="header hands-of-sean" [ngClass]="{'text-black': activeSection === 2 || activeSection === 3}">
         {{header}}
       </span>
       <div class="btn-order-online-container" *ngIf="activeSection === 1">

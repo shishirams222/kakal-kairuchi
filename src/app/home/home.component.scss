@@ -45,11 +45,16 @@
     padding-top: 14%;
 
     .home-content {
+
       .header {
         padding: 42px;
         font-size: 36px;
         color: #f07138; 
         text-align: center;
+        
+        &.text-black {
+          color: black;
+        }
       }
     }
 
