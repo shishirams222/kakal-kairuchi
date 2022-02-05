@@ -1,6 +1,5 @@
 $kkr-primary: #f07138;
 .top-nav-container {
-  // background: linear-gradient(45deg, black, transparent);
   background: none;
   box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
   min-height: 74px;
@@ -8,14 +7,11 @@ $kkr-primary: #f07138;
   padding-left: 24px;
 
   &.active {
-    // background: yellowgreen;
-    box-shadow: rgb(0 0 0 / 99%) 0px 70px 50px -12px inset, black 0px 70px 36px -18px inset;
+    background-color: black;
+    opacity: 0.9;
+    // box-shadow: rgb(0 0 0 / 99%) 0px 70px 50px -12px inset, black 0px 70px 36px -18px inset;
     // box-shadow: rgba(50, 50, 93, 0.993) 0px 70px 50px -12px inset, rgb(0, 0, 0) 0px 24px 36px -18px inset;
   }
-
-  // .side-nav-parent {
-  //   display: none;
-  // }
 
   .only-logo {
     display: none;

@@ -6,7 +6,8 @@
     <p-image src="assets/icons/hand_logo.png" alt="Image" width="60"></p-image>
   </div> -->
   <div class="is-flex is-align-items-center home-logo" routerLink="/home">
-    <p-image src="assets/images/full_logo_white_orange.png" alt="Image" width="140"></p-image>
+    <p-image *ngIf="activeSection === 1" src="assets/images/full_logo_white_orange.png" alt="Image" width="140"></p-image>
+    <p-image *ngIf="activeSection > 1"src="assets/icons/hand_logo.png" alt="Image" width="60"></p-image>
   </div>
   <div class="is-flex is-flex-direction-row is-align-items-center p-d-none p-d-md-inline-flex">
     <!-- Main Navigation -->

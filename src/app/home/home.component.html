@@ -1,4 +1,7 @@
 <div class="home-container" id="main">
+  <div class="top-nav">
+    <app-top-nav [activeSection]="activeSection"></app-top-nav>
+  </div>
   <div class="side-nav-parent">
     <app-side-nav (someEvent)="deletePhone($event)"></app-side-nav>
   </div>

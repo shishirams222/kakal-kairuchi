@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild, Input} from '@angular/core';
 
 @Component({
   selector: 'app-top-nav',
@@ -10,6 +10,8 @@ export class TopNavComponent implements OnInit {
 
   constructor() { }
 
+  @Input() activeSection: number = 1;
+
   ngOnInit(): void {
   }
 
@@ -19,12 +21,15 @@ export class TopNavComponent implements OnInit {
 
   ngAfterContentInit() {
     (() => {
-      window.addEventListener('scroll', () => {
-        if(window.scrollY > 4) {
+      const app = document.getElementById("main");
+      app && app.addEventListener('scroll', () => {
+        const scrolly = app.scrollTop;
+        if(scrolly > 4) {
           $(".top-nav-container").addClass("active");
         } else {
           //remove the background property so it comes transparent again (defined in your css)
           $(".top-nav-container").removeClass("active");
+          
         }
       });
     })()
