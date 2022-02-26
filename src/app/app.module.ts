@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
 import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
 
 // custom components
 import { TopNavComponent } from './top-nav/top-nav.component';
@@ -48,7 +49,8 @@ import { AboutUsMobileComponent } from './about-us-mobile/about-us-mobile.compon
     ImageModule,
     SidebarModule,
     ButtonModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

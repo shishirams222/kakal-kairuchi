@@ -9,7 +9,21 @@ export class FranchiseEnquiryComponent implements OnInit {
 
   constructor() { }
 
-  submitEnquiry () {
+  firstName: string = '';
+  isWidgetOpen: boolean = false;
+  isFormOpen: boolean = true;
+
+  openWidget() {
+    this.isWidgetOpen = true;
+  };
+
+  resetWidget() {
+    this.isWidgetOpen = false;
+    this.isFormOpen = true;
+  };
+
+  submitEnquiry (result: any) {
+    this.isFormOpen = false;
     // const formData = $("#myForm").serializeArray();
     // console.log('formData: ', formData);
     // $.ajax({
@@ -23,7 +37,7 @@ export class FranchiseEnquiryComponent implements OnInit {
     //       alert("There was an error :(")
     //     }
     // });
-    alert ("Form submitted successfully");
+    console.log(result);
   };
 
   ngOnInit(): void {

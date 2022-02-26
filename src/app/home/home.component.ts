@@ -140,15 +140,15 @@ export class HomeComponent implements OnInit {
         if (((scrolly % sectionHeight) > (stepper * 5))) {
           this.setOpacity('0.0');
         }
-        // if (((scrolly % sectionHeight) > (stepper * 6))) {
-        //   this.setOpacity('0.3');
-        // }
-        // if (((scrolly % sectionHeight) > (stepper * 7))) {
-        //   this.setOpacity('0.5');
-        // }
-        // if (((scrolly % sectionHeight) > (stepper * 8))) {
-        //   this.setOpacity('0.7');
-        // }
+        if (((scrolly % sectionHeight) > (stepper * 6))) {
+          this.setOpacity('0.0');
+        }
+        if (((scrolly % sectionHeight) > (stepper * 7))) {
+          this.setOpacity('0.5');
+        }
+        if (((scrolly % sectionHeight) > (stepper * 8))) {
+          this.setOpacity('0.7');
+        }
         if (((scrolly % sectionHeight) > (stepper * 9))) {
           this.setOpacity('0.9');
         }
@@ -156,16 +156,19 @@ export class HomeComponent implements OnInit {
           this.setOpacity('1');
         }
 
-        if (scrolly < (sectionHeight - 100)) {
+        console.log('scrollY ', scrolly); //1175
+        console.log('sectionHeight: ', sectionHeight); //1447
+        if (scrolly < (sectionHeight - (sectionHeight/3.5))) {
+          console.log('in section 1');
           this.activeSection = 1;
           this.header = 'Enriching Delicious Memories';
         }
-        if ((scrolly < (sectionHeight * 2) - 100) && (scrolly > sectionHeight - 100)) {
+        if ((scrolly < (sectionHeight * 2) - (sectionHeight/3.5)) && (scrolly > sectionHeight - (sectionHeight/3.5))) {
           this.activeSection = 2;
           this.header = 'Our Products 1';
           this.description = 'Single line about our products';
         }
-        if ((scrolly < (sectionHeight * 3) - 100) && (scrolly > (sectionHeight * 2) - 100)) {
+        if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
           this.activeSection = 3;
           this.header = 'Our Products 2';
           this.description = 'Single line about our products 2';

@@ -12,7 +12,7 @@ const routes = [
   // auto redirect to home
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
-  {path: 'franchise', component: FranchiseEnquiryComponent},
+  // {path: 'franchise', component: FranchiseEnquiryComponent},
   {path: 'about_us', component: AboutUsComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'locations', component: LocationsComponent},
