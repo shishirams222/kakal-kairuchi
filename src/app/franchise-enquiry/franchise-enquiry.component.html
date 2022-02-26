@@ -38,22 +38,20 @@
   </div>
 </div> -->
 <div style="position: fixed; bottom: 24px; right: 16px; z-index: 100;">
-  <div *ngIf="isWidgetOpen" style="border: 1px solid orangered; border-radius: 8px; padding: 16px; background: lightgoldenrodyellow;">
+  <div *ngIf="isWidgetOpen" style="border-radius: 8px; padding: 16px; background-color: lightyellow; border: 1px solid #CCC; box-shadow: -5px 6px 14px #CCC;">
     <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
-      <form #userName="ngForm" netlify>
+      <form name="feedbackForm" #userName="ngForm" data-netlify=true>
         <div class="p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
           <div class="p-d-flex" style="font-size: 18px;">
             <strong>Write To Us</strong>
           </div>
-          <!-- <div class="p-d-flex" style="border: 1px solid darkslategray; border-radius: 50%; padding: 3px 0 0 9px; margin-left: 14px; height: 30px; width: 30px; cursor: pointer; background-color: goldenrod;" (click)="isWidgetOpen = false">
-            X
-          </div> -->
+          
           <div (click)="isWidgetOpen = false">
             <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
           </div>
         </div>
         
-        <div class="form-area p-d-flex p-flex-column">
+        <div class="form-area p-d-flex p-flex-column is-justify-content-center is-align-items-center">
           <div class="p-d-flex p-flex-column">
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
               <label for="firstName">Name</label>
@@ -72,27 +70,35 @@
               <textarea ngModel name="description" id="description" type="text" class="p-inputtext p-component p-element"></textarea> 
             </div>
           </div>
-          <button style="margin-top: 16px;" type="submit" (click)="submitEnquiry(userName.value)" class="p-element p-ripple p-button p-component" pButton pRipple type="button" label="Submit"></button>
+          <button style=" margin-top: 16px;
+          height: 40px;
+          border-radius: 20px;
+          max-width: 140px;
+          align-items: center;
+          justify-self: center;
+          background: #3a3a41;
+          min-width: 140px;
+          color: white;" type="submit" ngDisabled="userName.invalid" (click)="submitEnquiry(userName.value)" class="p-element p-ripple p-component" pRipple type="button" label="Submit">Submit</button>
         </div>
       </form>
     </div>
 
     <div *ngIf="!isFormOpen" style="display: flex; max-width: 240px; flex-direction: row;">
-      <div style="display: flex;">
+      <div style="display: flex; color: #000000;">
         Thanks For Your Valuable FeedBack!
       </div>
       <div (click)="resetWidget()">
         <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
       </div>
-      <!-- <div style="border: 1px solid darkslategray; border-radius: 50%; padding: 3px 8px; margin-left: 20px; min-height: 30px; max-height: 30px; min-width: 29px; cursor: pointer; background-color: goldenrod; display: flex;" (click)="resetWidget()">
-        X
-      </div> -->
     </div>
   </div>
 
   <!-- style="min-width: 60px; min-height: 60px;max-width: 60px; max-height: 60px; background-color: lightsalmon;border-radius: 50%; padding: 10px;" -->
-  <div *ngIf="!isWidgetOpen" (click)="openWidget()">
+
+  <!-- style="max-height: 100px; max-width: 100px; min-width: 100px; padding: 25px; min-height: 100px; border-radius: 50px; position: fixed; bottom: 24px; right: 24px; z-index: 100; background-color: #f07138;" -->
+  <div *ngIf="!isWidgetOpen" (click)="openWidget()" style="box-shadow: -5px 6px 22px #CCC; max-height: 70px; max-width: 70px; min-width: 70px; padding: 14px; min-height: 70px; background-color: lightyellow; border: 1px solid #CCC; border-radius: 40px;">
     <!-- <img src="https://img.icons8.com/offices/40/000000/feedback.png"/> -->
-    <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-message-stationery-and-office-wanicon-flat-wanicon.png"/>
+    <!-- <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-message-stationery-and-office-wanicon-flat-wanicon.png"/> -->
+    <img src="https://img.icons8.com/ios/50/000000/feedback.png"/>
   </div>  
 </div>
