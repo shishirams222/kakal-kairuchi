@@ -6,7 +6,7 @@
     <app-side-nav (someEvent)="deletePhone($event)"></app-side-nav>
   </div>
 
-  <div class="section-content" id="section-content" [ngClass]="{'z-index-0': activeSection === 2 || activeSection === 3}">
+  <div class="section-content" id="section-content" [ngClass]="{'z-index-0': activeSection === 2 || activeSection === 3 || activeSection === 4}">
     <div class="home-content" *ngIf="activeSection < 4" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
       <span class="header hands-of-sean" [ngClass]="{'text-black': activeSection === 2 || activeSection === 3}">
         {{header}}
@@ -48,6 +48,9 @@
     <div class="single-section" id="section-three">
       <app-slide-show [imagesList]="slideShow2Data"></app-slide-show>
     </div>
+    <!-- <div class="single-section" id="section-four">
+      <app-about-us-mobile></app-about-us-mobile>
+    </div> -->
     <!-- <div class="single-section">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
         <h1 class="header hands-of-sean" style="color: #f07138;">

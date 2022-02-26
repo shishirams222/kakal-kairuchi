@@ -23,6 +23,7 @@ import { SidebarModule } from "primeng/sidebar";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SlideShowComponent } from './slide-show/slide-show.component';
+import { AboutUsMobileComponent } from './about-us-mobile/about-us-mobile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SlideShowComponent } from './slide-show/slide-show.component';
     LocationsComponent,
     OutletDetailsComponent,
     SideNavComponent,
-    SlideShowComponent
+    SlideShowComponent,
+    AboutUsMobileComponent
   ],
   imports: [
     BrowserModule,

@@ -226,11 +226,17 @@ $kkr-primary: #f07138;
     }
     /* ================ Timeline Media Queries ================ */
     
+    // mobilw container
     @media screen and (max-width: 660px) {
     
       .timeline {
-        width: 100%;
+        width: 85%;
         padding: 4em 0 1em 0;
+      }
+
+      .timeline .desc {
+        width: 80vw;
+        height: 80vw;
       }
       
       .timeline li {
@@ -251,7 +257,7 @@ $kkr-primary: #f07138;
           background: cornsilk;
           border: 1px solid cyan;
           border-radius: 4px;
-          margin: 8px;
+          // margin: 8px;
           padding: 14px;
           z-index: 1;
         }
@@ -292,7 +298,7 @@ $kkr-primary: #f07138;
         width: 0;
         margin-left: -8px;
         border: solid transparent;
-        border-bottom-color: rgb(255,255,255);
+        border-bottom-color: #f1a581;
         border-width: 8px;
         pointer-events: none;
       }
