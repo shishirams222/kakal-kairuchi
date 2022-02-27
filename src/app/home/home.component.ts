@@ -66,6 +66,7 @@ export class HomeComponent implements OnInit {
     }
   ];
   slideShowInfo1 = 'This is products 1 info';
+  slideShow1Header = 'Our Products';
 
   slideShow2Data: any = [
     {
@@ -95,22 +96,40 @@ export class HomeComponent implements OnInit {
     },
   ]
   slideShowInfo2 = 'This is products 2 info';
+  slideShow2Header = 'Our Products 2';
 
 
   ngOnInit(): void {
   }
 
-  setOpacity (opacityValue: string) {
+  public setOpacity (opacityValue: string) {
+    console.log('value: ', opacityValue);
     $(".section-content").css("opacity", opacityValue);
     $(".welcome-text").css("opacity", opacityValue);
     $(".btn-order-online-container").css("opacity", opacityValue);
   };
 
-  public deletePhone (value: string): void {
+  public scrollToSection (value: string): void {
     var element = document.getElementById(value);
     element?.scrollIntoView ({
       behavior: 'smooth'
     });
+  };
+
+  checkIfRightScrolled(index: number) {
+    const slideShowContainer = document.getElementsByClassName("slide-show-container")[index];
+    const singleSlide = document.getElementsByClassName("single-slide")[0];
+    const scrollX = slideShowContainer.scrollLeft;
+    if (window.innerWidth < 660) {
+      if (scrollX > singleSlide.scrollWidth - 20) {
+        this.setOpacity('0.0');
+      }
+    } else {
+      if (scrollX > singleSlide.scrollWidth) {
+        this.setOpacity('0.0');
+      }
+    }
+    
   };
 
   ngAfterContentInit() {
@@ -167,11 +186,14 @@ export class HomeComponent implements OnInit {
           this.activeSection = 2;
           this.header = 'Our Products 1';
           this.description = 'Single line about our products';
+          this.checkIfRightScrolled(0);
         }
         if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
           this.activeSection = 3;
+          console.log('in active section 3');
           this.header = 'Our Products 2';
           this.description = 'Single line about our products 2';
+          this.checkIfRightScrolled(1);
         }
         if ((scrolly < (sectionHeight * 4) - 100) && (scrolly > (sectionHeight * 3) - 100)) {
           this.activeSection = 4;

@@ -40,7 +40,8 @@
 <div style="position: fixed; bottom: 24px; right: 16px; z-index: 100;">
   <div *ngIf="isWidgetOpen" style="border-radius: 8px; padding: 16px; background-color: lightyellow; border: 1px solid #CCC; box-shadow: -5px 6px 14px #CCC;">
     <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
-      <form name="feedbackForm" #userName="ngForm" data-netlify="true">
+      <form name="feedbackForm" #feedbackForm="ngForm" data-netlify="true" method="POST">
+        <input type="hidden" name="form-name" value="feedbackForm">
         <div class="p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
           <div class="p-d-flex" style="font-size: 18px;">
             <strong>Write To Us</strong>
@@ -78,7 +79,7 @@
           justify-self: center;
           background: #3a3a41;
           min-width: 140px;
-          color: white;" type="submit" ngDisabled="userName.invalid" (click)="submitEnquiry(userName.value)" class="p-element p-ripple p-component" pRipple type="button" label="Submit">Submit</button>
+          color: white;" type="submit" (click)="submitEnquiry(feedbackForm.value)" class="p-element p-ripple p-component" pRipple type="button" label="Submit">Submit</button>
         </div>
       </form>
     </div>

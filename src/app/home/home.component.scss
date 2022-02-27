@@ -1,7 +1,7 @@
 // KP font: font: normal normal normal 36px/1.4em 'playfair display',serif;
 
 .home-container {
-
+  background-image: linear-gradient(118deg ,#f7bf6d 20%,#f6fafb 89%);
   .side-nav-parent {
     position: fixed;
     top: 0;
@@ -43,6 +43,10 @@
     width: 100vw;
     margin-left: -100vw;
     padding-top: 14%;
+
+    &.justify-start {
+      justify-content: start;
+    }
 
     .home-content {
 
@@ -250,5 +254,9 @@
     .nav-button {
       display: none;
     }
+  }
+
+  .product-bg {
+    // background-image: url('../../assets/images/product/products_bg.jpg');
   }
 }

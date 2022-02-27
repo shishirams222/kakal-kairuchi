@@ -23,7 +23,7 @@
     scroll-snap-align: start;
     font-size: 3.5ch;
     text-align: center;
-    background-color: white;
+    // background-color: white;
 
     &.transparent {
       background-color: transparent;
@@ -65,7 +65,7 @@
       justify-content: center;
       // position: absolute;
       // top: 16%;
-      border-radius: 8px;
+      border-radius: 20px;
     }
   }
   

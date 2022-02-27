@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-slide-show',
@@ -10,6 +10,8 @@ export class SlideShowComponent implements OnInit {
   @Input() imagesList = <any[]>([]);
   @Input() nameList = [];
   @Input() id = '';
+  @Input() pageDescription = {};
+  @Input() slideShowIndex = 0;
   // @Input() slideShowInfo = '';
 
   showHeader: boolean = false;
@@ -19,11 +21,31 @@ export class SlideShowComponent implements OnInit {
   showRight: boolean = true;
   imgIndex1: number = 0;
   showNext: boolean = true;
+  slideShowId: string = '';
 
   constructor() { }
+  @Output() clearTextEvent = new EventEmitter<string>();
+
+  callParent(opacity: string): void {
+    console.log('opacity: ', opacity);
+    // var headerConditions = {
+    //   opacity: opacity,
+    //   showHeader: this.showHeader
+    // };
+    this.clearTextEvent.next(opacity);
+  };
 
   ngOnInit(): void {
-  }
+    console.log('index: ', this.slideShowIndex);
+    this.slideShowId = 'slide-show-container' + this.slideShowIndex;
+    console.log('id: ', this.slideShowId);
+    const slideShowContainer = document.getElementsByClassName("slide-show-container")[this.slideShowIndex];
+    const singleSlide = document.getElementsByClassName("single-slide")[0];
+    const scrollX = slideShowContainer.scrollLeft;
+    if (scrollX > singleSlide.scrollWidth) {
+      this.callParent('0.0');
+    }
+  };
 
   scrollNext () {
     const slideShowContainer = document.getElementById("slide-show-container");
@@ -40,31 +62,43 @@ export class SlideShowComponent implements OnInit {
   };
 
   ngAfterContentInit(): void {
-    // const slideShowContainer = document.getElementById("slide-show-container1");
-    //   const image1 = document.getElementById("image-one");
-    //   slideShowContainer && slideShowContainer.addEventListener('scroll', () => {
-    //     const scrollX = slideShowContainer.scrollLeft;
-    //     const imageWidth = image1?.scrollWidth || 0;
+    const slideShowContainer = document.getElementsByClassName("slide-show-container")[this.slideShowIndex];
+    const singleSlide = document.getElementsByClassName("single-slide")[0];
+    console.log('conainer: ', singleSlide.scrollWidth);
+    slideShowContainer && slideShowContainer.addEventListener('scroll', () => {
+      const scrollX = slideShowContainer.scrollLeft;
 
-    //     if ((scrollX === 0)) {
-    //       this.showHeader = true;
-    //       this.productDetails = '';
-    //       this.description = '';
-    //     }
+      // mobile screen
+      // if ((scrollX === 0) || (scrollX > 0) || (scrollX < (window.innerWidth)/2)) {
+      //   console.log('scrollX 1.0', scrollX);
+      //   this.callParent('1.0');
+      // }
 
-    //     if ((scrollX > 0) && (scrollX <= imageWidth)) {
-    //       this.description = 'Gulab Jamun';
-    //       this.productDetails = 'Sugar, Refined oil, Kova, Maida, Cooking soda'; 
-    //       $(".header").css("color", "black");
-    //       this.imgIndex1 = 0;
-    //     }
+      // if ((scrollX > window.innerWidth/2) && (scrollX < window.innerWidth)) {
+      //   this.callParent('0.5');
+      //   console.log('scrollX 0.5', scrollX);
+      // }
 
-    //     if (scrollX > (imageWidth) && scrollX <= (imageWidth * 2)) {
-    //       this.description = 'Chakli Sticks';
-    //       this.productDetails = 'Rice, Urad Dal, Chilli Powder, Refined Oil, White Til, Ajwain (om), Jeera, Fenugreek (Meethi) seeds';
-    //       this.showHeader = false;
-    //       this.imgIndex1 = 1;
-    //     }
+      // if (scrollX > (window.innerWidth - 10)) {
+      //   this.callParent('0.0');
+      //   console.log('scrollX 0.0', scrollX);
+      // }
+
+      // web screen
+      if ((scrollX === 0) || (scrollX > 0) || (scrollX < (singleSlide.scrollWidth)/2)) {
+        console.log('scrollX 1.0', scrollX);
+        this.callParent('1.0');
+      }
+
+      if ((scrollX > singleSlide.scrollWidth/2) && (scrollX < singleSlide.scrollWidth)) {
+        this.callParent('0.5');
+        console.log('scrollX 0.5', scrollX);
+      }
+
+      if (scrollX > (singleSlide.scrollWidth - 10)) {
+        this.callParent('0.0');
+        console.log('scrollX 0.0', scrollX);
+      }
 
     //     if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
     //       this.description = 'Jeera powder';
@@ -95,7 +129,7 @@ export class SlideShowComponent implements OnInit {
     //       this.imgIndex1 = 7;
     //       this.showNext = false;
     //     }
-      // });
+    });
 
   };
 
