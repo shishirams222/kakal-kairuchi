@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-franchise-enquiry',
@@ -22,7 +23,7 @@ export class FranchiseEnquiryComponent implements OnInit {
     this.isFormOpen = true;
   };
 
-  submitEnquiry (result: any) {
+  submitEnquiry (formValue: any) {
     this.isFormOpen = false;
     // const formData = $("#myForm").serializeArray();
     // console.log('formData: ', formData);
@@ -37,7 +38,16 @@ export class FranchiseEnquiryComponent implements OnInit {
     //       alert("There was an error :(")
     //     }
     // });
-    console.log(result);
+    console.log(formValue);
+    // let myForm = document.getElementById("feedbackForm");
+    // let formData = myForm && new FormData(myForm);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formValue).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   };
 
   ngOnInit(): void {

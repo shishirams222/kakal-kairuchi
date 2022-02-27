@@ -1,6 +1,7 @@
 // KP font: font: normal normal normal 36px/1.4em 'playfair display',serif;
 
 .home-container {
+  // background-image: linear-gradient(90deg ,#f7bf6d 20%,#f6fafb 89%);
   background-image: linear-gradient(118deg ,#f7bf6d 20%,#f6fafb 89%);
   .side-nav-parent {
     position: fixed;
@@ -251,6 +252,7 @@
   }
 
   @media screen and (min-width: 670px) {
+    background-image: linear-gradient(90deg ,#f7bf6d 20%,#f6fafb 89%);
     .nav-button {
       display: none;
     }

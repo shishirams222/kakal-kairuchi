@@ -40,7 +40,7 @@
 <div style="position: fixed; bottom: 24px; right: 16px; z-index: 100;">
   <div *ngIf="isWidgetOpen" style="border-radius: 8px; padding: 16px; background-color: lightyellow; border: 1px solid #CCC; box-shadow: -5px 6px 14px #CCC;">
     <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
-      <form name="feedbackForm" data-netlify="true" method="POST">
+      <form name="feedbackForm" #userForm="ngForm" data-netlify="true" method="POST">
         <div class="p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
           <div class="p-d-flex" style="font-size: 18px;">
             <strong>Write To Us</strong>
@@ -58,15 +58,15 @@
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
               <label for="email">Email</label>
-              <input ngModel name="email" id="email" type="text" class="p-inputtext p-component p-element" pInputText> 
+              <input ngModel name="email" id="email" type="email" class="p-inputtext p-component p-element" pInputText> 
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
               <label for="phone">Phone</label>
-              <input ngModel name="phone" id="phone" type="text" class="p-inputtext p-component p-element" pInputText> 
+              <input ngModel name="phone" id="phone" type="number" class="p-inputtext p-component p-element" pInputText> 
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-              <label for="description">Feedback</label>
-              <textarea ngModel name="description" id="description" type="text" class="p-inputtext p-component p-element"></textarea> 
+              <label for="description">Feedbackkk</label>
+              <textarea ngModel name="description" id="description" class="p-inputtext p-component p-element"></textarea> 
             </div>
           </div>
           <button style=" margin-top: 16px;
@@ -77,9 +77,29 @@
           justify-self: center;
           background: #3a3a41;
           min-width: 140px;
-          color: white;" type="submit" (click)="isFormOpen = false" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
+          color: white;" type="submit" (click)="submitEnquiry(userForm.value)" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
         </div>
       </form>
+      <!-- <form name="contact" method="POST" data-netlify="true">
+        <p>
+          <label>Your Name: <input type="text" name="name" /></label>   
+        </p>
+        <p>
+          <label>Your Email: <input type="email" name="email" /></label>
+        </p>
+        <p>
+          <label>Your Role: <select name="role[]" multiple>
+            <option value="leader">Leader</option>
+            <option value="follower">Follower</option>
+          </select></label>
+        </p>
+        <p>
+          <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form> -->
     </div>
 
     <div *ngIf="!isFormOpen" style="display: flex; max-width: 240px; flex-direction: row;">
