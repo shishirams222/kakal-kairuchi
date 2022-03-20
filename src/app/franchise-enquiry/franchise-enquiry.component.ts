@@ -39,12 +39,13 @@ export class FranchiseEnquiryComponent implements OnInit {
     //     }
     // });
     console.log(formValue);
-    // let myForm = document.getElementById("feedbackForm");
-    // let formData = myForm && new FormData(myForm);
+    let myForm = document.querySelector("userForm");
+    console.log('form: ', myForm);
+    let formData = new FormData(formValue.form);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formValue).toString(),
+      body: new URLSearchParams(formData).toString(),
     })
       .then(() => console.log("Form successfully submitted"))
       .catch((error) => alert(error));
