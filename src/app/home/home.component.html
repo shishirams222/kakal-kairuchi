@@ -6,12 +6,17 @@
     <app-side-nav (someEvent)="scrollToSection($event)"></app-side-nav>
   </div>
 
-  <div class="section-content" id="section-content" [ngClass]="{'z-index-0': (activeSection === 2 || activeSection === 3 || activeSection === 4), 'justify-start': activeSection === 2 || activeSection === 3}">
-    <div class="home-content" *ngIf="activeSection < 4" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
-      <span class="header hands-of-sean" [ngClass]="{'text-black': activeSection === 2 || activeSection === 3}">
+  <div class="section-content" id="section-content" [ngClass]="{
+    'z-index-0': (activeSection === 2 || activeSection === 3 || activeSection === 4 || activeSection === 5), 
+    'justify-start': activeSection === 2 || activeSection === 3, 
+    'products-bg-1': activeSection === 2,
+    'left-header': (activeSection === 2 || activeSection === 3 || activeSection === 4)}">
+
+    <div class="home-content" *ngIf="activeSection < 5" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+
+      <span class="header hands-of-sean" [ngClass]="{'text-black': activeSection === 2 || activeSection === 3, 'our-journey-header': activeSection === 4}">
         {{header}}
       </span>
-      <!-- gradient ex: background-image: linear-gradient( 118deg ,#f7bf6d 1%,#f6fafb 89%); -->
       <div class="btn-order-online-container" *ngIf="activeSection === 1">
         <a href="https://kakalkairuchi.dotpe.in/">
           <button class="home-btn btn-order-online">Order Now!</button>
@@ -49,9 +54,10 @@
     <div class="single-section" id="section-three">
       <app-slide-show (clearTextEvent)="setOpacity($event)" [slideShowIndex]="1" [imagesList]="slideShow2Data"></app-slide-show>
     </div>
-    <!-- <div class="single-section" id="section-four">
-      <app-about-us-mobile></app-about-us-mobile>
-    </div> -->
+    <div class="single-section" id="section-four">
+      <app-about-us-mobile (clearTextEvent)="setOpacity($event)"></app-about-us-mobile>
+    </div>
+    
     <!-- <div class="single-section">
       <div class="welcome-text franchise" *ngIf="scrollY && (scrollY >= sectionHeight*3) && (scrollY < (sectionHeight*6 - 260))">
         <h1 class="header hands-of-sean" style="color: #f07138;">
@@ -86,7 +92,7 @@
       <div *ngIf="(scrollY >= sectionHeight*5)">
       </div>
     </div> -->
-    <div class="single-section">
+    <div class="single-section" id="section-four">
       <app-footer></app-footer>
     </div>
   </div>

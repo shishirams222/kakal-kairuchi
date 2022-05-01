@@ -1,4 +1,4 @@
-.about-us-container {
+.about-us-mobile-container {
   position: relative;
   max-height: 100vh;
   min-height: 100vh;
@@ -12,95 +12,128 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
-  .about-us-slide {
-    position: relative;
-    max-height: 100vh;
-    min-height: 100vh;
+  .single-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     height: calc(100vh - var(--scrollbar-height));
-    margin-top: 18vh;
-    min-width: 100vw;
+    margin-top: 12vh;
+    min-width: 30vw;
     scroll-snap-align: start;
     font-size: 3.5ch;
     text-align: center;
-    background-color: white;
+    padding: 2vw;
 
     &.transparent {
       background-color: transparent;
     }
 
-    .about-us-image {
-      min-width: 80vw;
-      min-height: 80vw;
-      border-radius: 8px;
-      border: 1px solid blueviolet;
-    }
-
-    .year-stepper-container {
+    .year-stepper {
+      position: relative;
+      width: 100vw;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      margin-bottom: 29vh;
 
-      .about-us-year-block {
-        min-height: 42px;
-        max-height: 42px;
+      .year-block {
+        padding: 4px;
+        margin: 24px 0 10px 0;
         max-width: 200px;
-        border-radius: 6px;
-        background: linear-gradient(0deg, #f07138, white);
-        border: 1px solid #f07138;
-        font-size: 18px;
-        padding: 8px 16px;
-        position: relative;
-        // margin-bottom: 12px;
+        min-width: 200px;
+        font-size: 20px;
+        box-shadow: 0 0px 8px 0 rgb(0 0 0 / 60%);
+        font-weight: 700;
+        border-radius: 12px;
+        border: 1px solid;
+      }
 
-        .arrow {
-          content: "";
-          position: absolute;
-          right: 0;
-          left: 0;
-          margin-right: auto;
-          margin-left: auto;
-          top: 100%;
-          height: 0;
-          width: 0;
-          margin-top: 0;
-          border: solid transparent;
-          border-right-color: #f07138;
-          border-width: 8px;
-          pointer-events: none;
-          transform: rotate(270deg);
+      .stepper {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        background: #505050;
+        height: 8px;
+
+        &.start {
+          background: linear-gradient(to left,rgba(80,80,80,0) 0%,#505050 0,#505050 40%,rgba(80,80,80,0) 100%);
+        }
+
+        &.end {
+          background: linear-gradient(to right, rgba(80, 80, 80, 0) 0%, #505050 0%, #505050 48%, rgba(80, 80, 80, 0) 100%); 
         }
       }
+
+      .stepper-circle {
+        position: absolute;
+        top: 0;
+        right: 49vw;
+        content: " ";
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-top: -6px;
+        background: #fff;
+        border-radius: 10px;
+        border: 4px solid #f07138;
+        z-index: 1;
+      }
+    }
+    
+    .page-header {
+      margin-bottom: 14px;
+      .image-name {
+        max-width: 300px;
+        min-width: 300px;
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow: 0px 0px 1px 2px red;
+        border: 1px solid darkslategrey;
+        border-radius: 6px;
+        background: linen;
+        outline: 1px solid white;
+        padding: 4px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+      }
+    }
+      
+    .description {
+      font-size: 16px;
+      max-height: 25vh;
+      min-height: 25vh;
+      max-width: 28vw;
+      min-width: 28vw;
+      border-radius: 18px;
+      padding: 10px;
+      background: cornsilk;
+      border: 1px solid orange;
+      box-shadow: 0 0px 15px 0 orange, 0 0px 13px 0 rgb(0 0 0 / 19%);
+      margin-top: 14px;
+      overflow: auto;
     }
 
-    .stepper-line {
-      min-width: 80vw;
-      min-height: 80vw;
-      // position: absolute;
-      min-height: 4px;
-      max-height: 4px;
-      min-width: 65vw;
-      background-color: black;
-      margin-left: 35vw;
-      bottom: 26vh;
-      margin-bottom: 26vh;
-
-      &.full-width {
-        min-width: 100vh;
+    .img-container {
+      img {
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+        border-radius: 20px;
+        margin-bottom: 14px;
       }
+    }
+  }
 
-      .circle {
-        height: 18px;
-        width: 18px;
-        border: 4px solid #f07138;
-        border-radius: 50%;
-        background-color: white;
-        margin-bottom: 26vh;
+  @media screen and (max-width: 660px) {
+    .single-slide {
+      max-height: 100vh;
+      min-height: 100vh;
+      min-width: 100vw;
+      
+      .description {
+        max-width: 86vw;
+        min-width: 86vw;
       }
     }
   }

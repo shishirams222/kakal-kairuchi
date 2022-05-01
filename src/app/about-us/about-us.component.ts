@@ -18,7 +18,7 @@ export class AboutUsComponent implements OnInit {
   }
 
   scroll = (event: any): void => {
-    console.log('event: ', event);
+    // console.log('event: ', event);
     //handle your scroll here
     //notice the 'odd' function assignment to a class field
     //this is used to be able to remove the event listener

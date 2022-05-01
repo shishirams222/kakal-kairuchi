@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
   }
 
   public setOpacity (opacityValue: string) {
-    console.log('value: ', opacityValue);
+    // console.log('value: ', opacityValue);
     $(".section-content").css("opacity", opacityValue);
     $(".welcome-text").css("opacity", opacityValue);
     $(".btn-order-online-container").css("opacity", opacityValue);
@@ -116,8 +116,8 @@ export class HomeComponent implements OnInit {
     });
   };
 
-  checkIfRightScrolled(index: number) {
-    const slideShowContainer = document.getElementsByClassName("slide-show-container")[index];
+  checkIfRightScrolled(index: number, containerClass: string) {
+    const slideShowContainer = document.getElementsByClassName(containerClass)[index];
     const singleSlide = document.getElementsByClassName("single-slide")[0];
     const scrollX = slideShowContainer.scrollLeft;
     if (window.innerWidth < 660) {
@@ -129,7 +129,6 @@ export class HomeComponent implements OnInit {
         this.setOpacity('0.0');
       }
     }
-    
   };
 
   ngAfterContentInit() {
@@ -175,28 +174,30 @@ export class HomeComponent implements OnInit {
           this.setOpacity('1');
         }
 
-        console.log('scrollY ', scrolly); //1175
-        console.log('sectionHeight: ', sectionHeight); //1447
+        // console.log('scrollY ', scrolly); //1175
+        // console.log('sectionHeight: ', sectionHeight); //1447
         if (scrolly < (sectionHeight - (sectionHeight/3.5))) {
-          console.log('in section 1');
+          // console.log('in section 1');
           this.activeSection = 1;
           this.header = 'Enriching Delicious Memories';
         }
         if ((scrolly < (sectionHeight * 2) - (sectionHeight/3.5)) && (scrolly > sectionHeight - (sectionHeight/3.5))) {
           this.activeSection = 2;
-          this.header = 'Our Products 1';
-          this.description = 'Single line about our products';
-          this.checkIfRightScrolled(0);
+          this.header = 'Tradition Meets Taste of Hands';
+          this.description = '';
+          this.checkIfRightScrolled(0, 'slide-show-container');
         }
         if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
           this.activeSection = 3;
-          console.log('in active section 3');
-          this.header = 'Our Products 2';
+          // console.log('in active section 3');
+          this.header = 'Taste Melt Happiness Felt';
           this.description = 'Single line about our products 2';
-          this.checkIfRightScrolled(1);
+          this.checkIfRightScrolled(1, 'slide-show-container');
         }
-        if ((scrolly < (sectionHeight * 4) - 100) && (scrolly > (sectionHeight * 3) - 100)) {
+        if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {
+          this.header = 'Our Journey...';
           this.activeSection = 4;
+          this.checkIfRightScrolled(0, 'about-us-mobile-container');
         }
         if ((scrolly < (sectionHeight * 5) - 100) && (scrolly > (sectionHeight * 4) - 100)) {
           this.activeSection = 5;

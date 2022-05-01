@@ -27,7 +27,7 @@ export class SlideShowComponent implements OnInit {
   @Output() clearTextEvent = new EventEmitter<string>();
 
   callParent(opacity: string): void {
-    console.log('opacity: ', opacity);
+    // console.log('opacity: ', opacity);
     // var headerConditions = {
     //   opacity: opacity,
     //   showHeader: this.showHeader
@@ -36,9 +36,7 @@ export class SlideShowComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log('index: ', this.slideShowIndex);
     this.slideShowId = 'slide-show-container' + this.slideShowIndex;
-    console.log('id: ', this.slideShowId);
     const slideShowContainer = document.getElementsByClassName("slide-show-container")[this.slideShowIndex];
     const singleSlide = document.getElementsByClassName("single-slide")[0];
     const scrollX = slideShowContainer.scrollLeft;
@@ -64,7 +62,7 @@ export class SlideShowComponent implements OnInit {
   ngAfterContentInit(): void {
     const slideShowContainer = document.getElementsByClassName("slide-show-container")[this.slideShowIndex];
     const singleSlide = document.getElementsByClassName("single-slide")[0];
-    console.log('conainer: ', singleSlide.scrollWidth);
+    // console.log('conainer: ', singleSlide.scrollWidth);
     slideShowContainer && slideShowContainer.addEventListener('scroll', () => {
       const scrollX = slideShowContainer.scrollLeft;
 
@@ -86,18 +84,18 @@ export class SlideShowComponent implements OnInit {
 
       // web screen
       if ((scrollX === 0) || (scrollX > 0) || (scrollX < (singleSlide.scrollWidth)/2)) {
-        console.log('scrollX 1.0', scrollX);
+        // console.log('scrollX 1.0', scrollX);
         this.callParent('1.0');
       }
 
       if ((scrollX > singleSlide.scrollWidth/2) && (scrollX < singleSlide.scrollWidth)) {
         this.callParent('0.5');
-        console.log('scrollX 0.5', scrollX);
+        // console.log('scrollX 0.5', scrollX);
       }
 
       if (scrollX > (singleSlide.scrollWidth - 10)) {
         this.callParent('0.0');
-        console.log('scrollX 0.0', scrollX);
+        // console.log('scrollX 0.0', scrollX);
       }
 
     //     if (scrollX > (imageWidth*2) && scrollX >= (imageWidth*3)) {
