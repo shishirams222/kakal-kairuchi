@@ -95,28 +95,41 @@
         text-transform: uppercase;
       }
     }
-      
-    .description {
-      font-size: 16px;
-      max-height: 14vh;
-      min-height: 14vh;
-      max-width: 28vw;
-      min-width: 28vw;
-      border-radius: 18px;
-      padding: 10px;
-      background: cornsilk;
-      border: 1px solid orange;
-      box-shadow: 0 0px 15px 0 orange, 0 0px 13px 0 rgb(0 0 0 / 19%);
-      margin-top: 14px;
-      overflow: auto;
+    
+    .description-container {
+      display: flex;
+      min-height: 25%;
+      max-height: 25%;
+      max-width: 90%;
+
+      .description {
+        font-size: 16px;
+        // max-height: 80%;
+        // min-height: 80%;
+        // max-width: 28vw;
+        // min-width: 28vw;
+        border-radius: 18px;
+        padding: 10px;
+        background: cornsilk;
+        border: 1px solid orange;
+        box-shadow: 0 0px 15px 0 orange, 0 0px 13px 0 rgb(0 0 0 / 19%);
+        margin-top: 14px;
+        overflow: auto;
+      }
     }
 
     .img-container {
       img {
-        max-width: 75vw;
-        min-width: 75vw;
-        max-height: 75vw;
-        min-height: 75vw;
+        // max-width: 75vw;
+        // min-width: 75vw;
+        // max-height: 75vw;
+        // min-height: 75vw;
+
+        max-width: 280px;
+        min-width: 280px;
+        max-height: 280px;
+        min-height: 280px;
+        
         border-radius: 20px;
         margin-bottom: 14px;
       }
@@ -128,21 +141,29 @@
       max-height: 100vh;
       min-height: 100vh;
       min-width: 100vw;
+
+      // .page-header {
+      //   margin-bottom: 14px;
+      //   .image-name {
+      //     max-width: 20%;
+      //     min-width: 20%;
+      //   }
+      // }  
       
-      .description {
-        max-width: 86vw;
-        min-width: 86vw;
-      }
+      // .description {
+      //   max-width: 86vw;
+      //   min-width: 86vw;
+      // }
     }
   }
 
-  @media screen and (min-height: 640px) {
-    .single-slide {
-      margin-top: 14vh;
-      .description {
-        min-height: 22vh;
-        max-height: 22vh;
-      }
-    }
-  }
+  // @media screen and (min-height: 640px) {
+  //   .single-slide {
+  //     margin-top: 14vh;
+  //     .description {
+  //       min-height: 40%;
+  //       max-height: 40%;
+  //     }
+  //   }
+  // }
 }
