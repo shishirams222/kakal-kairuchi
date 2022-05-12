@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // custom components
 import { TopNavComponent } from './top-nav/top-nav.component';
@@ -39,7 +41,8 @@ import { AboutUsMobileComponent } from './about-us-mobile/about-us-mobile.compon
     OutletDetailsComponent,
     SideNavComponent,
     SlideShowComponent,
-    AboutUsMobileComponent
+    AboutUsMobileComponent,
+    // HttpClient
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,9 @@ import { AboutUsMobileComponent } from './about-us-mobile/about-us-mobile.compon
     SidebarModule,
     ButtonModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    // HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

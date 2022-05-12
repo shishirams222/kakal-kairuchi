@@ -40,7 +40,13 @@
 <div style="position: fixed; bottom: 24px; right: 16px; z-index: 100;">
   <div *ngIf="isWidgetOpen" style="border-radius: 8px; padding: 16px; background-color: lightyellow; border: 1px solid #CCC; box-shadow: -5px 6px 14px #CCC;">
     <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
-      <form #userForm="ngForm" name="feedbackForm" data-netlify="true" method="POST">
+      <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <input name="first" ngModel required #first="ngModel">
+        <input name="last" ngModel>
+        <button>Submit</button>
+      </form> -->
+      
+      <form #feedback="ngForm" (ngSubmit)="onSubmit(feedback.value)">
         <div class="p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
           <div class="p-d-flex" style="font-size: 18px;">
             <strong>Write To Us</strong>
@@ -53,19 +59,19 @@
         <div class="form-area p-d-flex p-flex-column is-justify-content-center is-align-items-center">
           <div class="p-d-flex p-flex-column">
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-              <label for="firstName">Name</label>
-              <input ngModel name="firstName" type="text" class="p-inputtext p-component p-element" pInputText> 
+              <label for="name">Name</label>
+              <input ngModel name="name" type="text" class="p-inputtext p-component p-element"> 
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
               <label for="email">Email</label>
-              <input ngModel name="email" id="email" type="email" class="p-inputtext p-component p-element" pInputText> 
+              <input ngModel name="email" id="email" type="email" class="p-inputtext p-component p-element"> 
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
               <label for="phone">Phone</label>
-              <input ngModel name="phone" id="phone" type="number" class="p-inputtext p-component p-element" pInputText> 
+              <input ngModel name="phone" id="phone" type="number" class="p-inputtext p-component p-element"> 
             </div>
             <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-              <label for="description">Feedbackkk</label>
+              <label for="description">Feedback</label>
               <textarea ngModel name="description" id="description" class="p-inputtext p-component p-element"></textarea> 
             </div>
           </div>
@@ -77,7 +83,8 @@
           justify-self: center;
           background: #3a3a41;
           min-width: 140px;
-          color: white;" type="submit" (click)="submitEnquiry(userForm)" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
+          color: white;" type="submit" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
+          
         </div>
       </form>
       <!-- <form name="contact" method="POST" data-netlify="true">

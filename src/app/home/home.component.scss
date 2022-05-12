@@ -53,8 +53,10 @@
       background-image: url('../../assets/images/products_bg_final.jpg');
       background-repeat: no-repeat;
       background-position: bottom;
-      background-size: contain;
+      background-size: 90vw;
       background-color: #cd863f;
+      // justify-content: start;
+      align-items: start;
     }
 
     .home-content {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-franchise-enquiry',
@@ -8,7 +8,8 @@ import { Form } from '@angular/forms';
 })
 export class FranchiseEnquiryComponent implements OnInit {
 
-  constructor() { }
+  constructor ( private http: HttpClient ) {
+  }
 
   firstName: string = '';
   isWidgetOpen: boolean = false;
@@ -23,32 +24,24 @@ export class FranchiseEnquiryComponent implements OnInit {
     this.isFormOpen = true;
   };
 
-  submitEnquiry (formValue: any) {
+  onSubmit (formValue: any) {
     this.isFormOpen = false;
-    // const formData = $("#myForm").serializeArray();
-    // console.log('formData: ', formData);
-    // $.ajax({
-    //     url:'https://api.apispreadsheets.com/data/410/',
-    //     type:'post',
-    //     data:formData,
-    //     success: function(){
-    //       alert("Form Data Submitted :)")
-    //     },
-    //     error: function(){
-    //       alert("There was an error :(")
-    //     }
-    // });
+
     console.log(formValue);
-    let myForm = document.querySelector("userForm");
-    console.log('form: ', myForm);
-    // let formData = new FormData(formValue.form);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      // body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
+    var formDataString = 'Name:' + formValue.name + ', Phone: ' + formValue.phone + ', Email: ' + formValue.email + ', Feedback: ' + formValue.description;
+    var request = new XMLHttpRequest();
+
+    request.open(
+      "POST", 
+      'https://api.rock.so/webhook/bot?method=sendMessage&auth=aFvy5SnlY6sEiX3MbowzGUSVnB8JAVjFG5ZT8csnBVE');
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    var params = {
+      "text": formDataString
+    }
+
+    request.send(JSON.stringify(params));
   };
 
   ngOnInit(): void {
