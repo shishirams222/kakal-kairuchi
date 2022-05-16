@@ -189,7 +189,6 @@ export class HomeComponent implements OnInit {
         }
         if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
           this.activeSection = 3;
-          // console.log('in active section 3');
           this.header = 'Taste Melt Happiness Felt';
           this.description = 'Single line about our products 2';
           this.checkIfRightScrolled(1, 'slide-show-container');
@@ -197,10 +196,13 @@ export class HomeComponent implements OnInit {
         if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {
           this.header = 'Our Journey...';
           this.activeSection = 4;
+          this.description = '';
           this.checkIfRightScrolled(0, 'about-us-mobile-container');
         }
-        if ((scrolly < (sectionHeight * 5) - 100) && (scrolly > (sectionHeight * 4) - 100)) {
+        if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
           this.activeSection = 5;
+          this.header = 'Billion Mouths Million Opportunities';
+          this.description = 'Franchise with us!';
         }
         if ((scrolly < (sectionHeight * 6)) && (scrolly > (sectionHeight * 5))) {
           this.activeSection = 6;

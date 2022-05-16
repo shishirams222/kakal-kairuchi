@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-franchise-enquiry',
-  templateUrl: './franchise-enquiry.component.html',
-  styleUrls: ['./franchise-enquiry.component.scss']
+  selector: 'app-opportunities-enquiry',
+  templateUrl: './opportunities-enquiry.component.html',
+  styleUrls: ['./opportunities-enquiry.component.scss']
 })
-export class FranchiseEnquiryComponent implements OnInit {
+export class OpportunitiesEnquiryComponent implements OnInit {
 
-  constructor ( private http: HttpClient ) {
-  }
+  constructor( private http: HttpClient ) { }
+
+  @Input() activeSection = 0;
 
   firstName: string = '';
   isWidgetOpen: boolean = false;
   isFormOpen: boolean = true;
 
-  openWidget() {
+
+  openForm() {
     this.isWidgetOpen = true;
   };
 
-  resetWidget() {
+  resetForm() {
     this.isWidgetOpen = false;
     this.isFormOpen = true;
   };
@@ -27,7 +29,7 @@ export class FranchiseEnquiryComponent implements OnInit {
   onSubmit (formValue: any) {
     this.isFormOpen = false;
 
-    var formDataString = 'Feedback: Name:' + formValue.name + ', Phone: ' + formValue.phone + ', Email: ' + formValue.email + ', Feedback: ' + formValue.description;
+    var formDataString = 'Franchise Enquiry: First Name:' + formValue.firstName + ' , Last Name:' + formValue.lastName + ', Phone: ' + formValue.phone + ', Email: ' + formValue.email + ', Inquiry Details: ' + formValue.description;
     var request = new XMLHttpRequest();
 
     request.open(

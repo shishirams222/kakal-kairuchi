@@ -1,0 +1,51 @@
+.opportunities {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    max-width: 500px;
+    
+
+    &.form-open {
+        bottom: 0;
+        right: 0;
+        height: 100%;
+    }
+
+    &.form-close {
+        bottom: 17%;
+    }
+  
+    .form-container {
+
+    .header-container {
+        border-bottom: 1px solid #ababab;
+        margin-bottom: 24px;
+
+        .header {
+            font-size: 24px;
+        }
+
+        img {
+            vertical-align: top;
+        }
+    }
+
+      @media screen and (max-width: 660px) {
+        flex-wrap: wrap;
+      }
+  
+      .form-area {
+        .p-inputtext {
+            border-radius: 16px;
+            background-color: #636060;
+            color: white;
+        }
+        .input-label {
+            font-size: 20px;
+            text-align: left;
+            color: white;
+        }
+
+      }
+    }
+  }
