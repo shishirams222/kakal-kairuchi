@@ -3,7 +3,6 @@
     z-index: 100;
     width: 100%;
     max-width: 500px;
-    
 
     &.form-open {
         bottom: 0;
@@ -14,7 +13,7 @@
     &.form-close {
         bottom: 17%;
     }
-  
+
     .form-container {
 
     .header-container {
@@ -37,7 +36,7 @@
       .form-area {
         .p-inputtext {
             border-radius: 16px;
-            background-color: #636060;
+            background-color: #363434;
             color: white;
         }
         .input-label {
@@ -45,7 +44,6 @@
             text-align: left;
             color: white;
         }
-
       }
     }
   }

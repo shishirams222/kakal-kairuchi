@@ -1,5 +1,10 @@
 <div class="opportunities" [ngClass]="{'form-open': isWidgetOpen, 'form-close': !isWidgetOpen}" *ngIf="activeSection === 5">
-    <div *ngIf="isWidgetOpen" style="border-radius: 8px; padding: 16px; background-color: #3b3a3aed; border: 1px solid #CCC; box-shadow: -5px 6px 14px #CCC;">
+    <div *ngIf="isWidgetOpen" style="
+        border-radius: 8px;
+    padding: 16px;
+    background-color: #0d0c0cc4;
+    box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
+    border: 1px solid #CCC;">
       <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
         <form #feedback="ngForm" (ngSubmit)="onSubmit(feedback.value)" style="width: 100%;">
           <div class="header-container p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
@@ -58,16 +63,16 @@
     </div>
   
     <div *ngIf="!isWidgetOpen" (click)="openForm()" style="
-    box-shadow: -5px 6px 22px dimgray;
+    box-shadow: -5px 6px 22px dimgrey;
     border-radius: 34px;
-    background-color: #4a49498a;
+    background-color: #ffffffdb;
     border: 2px solid #f07128;
     height: 46px;
     margin: 0 36px;
     bottom: 6px;
-    color: white;
+    color: #f07138;
     font-size: 28px;
-    font-weight: 500;;">
+    font-weight: 500;">
       Send Inquiry
     </div>  
 </div>
