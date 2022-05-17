@@ -190,7 +190,7 @@ export class HomeComponent implements OnInit {
         if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
           this.activeSection = 3;
           this.header = 'Taste Melt Happiness Felt';
-          this.description = 'Single line about our products 2';
+          this.description = '';
           this.checkIfRightScrolled(1, 'slide-show-container');
         }
         if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {

@@ -40,10 +40,10 @@
         max-width: 200px;
         min-width: 200px;
         font-size: 20px;
-        box-shadow: 0 0px 8px 0 rgb(0 0 0 / 60%);
+        box-shadow: 0 0px 8px 0 #f07138;
         font-weight: 700;
-        border-radius: 12px;
-        border: 1px solid;
+        border-radius: 20px;
+        border: 2px solid #f07138;
       }
 
       .stepper {
@@ -85,11 +85,11 @@
         min-width: 75vw;
         font-size: 16px;
         font-weight: 700;
-        box-shadow: 0px 0px 1px 2px red;
+        // box-shadow: 0px 0px 1px 2px red;
         border: 1px solid darkslategrey;
-        border-radius: 6px;
+        border-radius: 12px;
         background: linen;
-        outline: 1px solid white;
+        // outline: 1px solid white;
         padding: 4px;
         margin-bottom: 4px;
         text-transform: uppercase;
@@ -102,8 +102,8 @@
 
       display: flex;
       max-width: 90%;
-      min-height: 20%;
-      max-height: 20%;
+      min-height: 16%;
+      max-height: 16%;
       max-width: 90%;
 
       .description {
@@ -112,11 +112,13 @@
         // min-height: 80%;
         // max-width: 28vw;
         // min-width: 28vw;
+
+        font-size: 16px;
         border-radius: 18px;
         padding: 10px;
         background: cornsilk;
         border: 1px solid orange;
-        box-shadow: 0 0px 15px 0 orange, 0 0px 13px 0 rgb(0 0 0 / 19%);
+        box-shadow: -6px 6px 16px 0 black;
         margin-top: 14px;
         overflow: auto;
       }
