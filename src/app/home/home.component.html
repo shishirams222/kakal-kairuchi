@@ -14,25 +14,26 @@
     'franchise-bg': activeSection === 5,
     'left-header': (activeSection === 2 || activeSection === 3 || activeSection === 4)}">
 
-    <div class="home-content" *ngIf="activeSection < 6" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+    <div class="home-content" *ngIf="activeSection < 6" style="display: flex; flex-direction: column; align-items: start; justify-content: start;">
 
       <span class="header hands-of-sean" [ngClass]="{'text-black': activeSection === 2 || activeSection === 3, 'our-journey-header': activeSection === 4, 'franchise-header': activeSection === 5}">
         {{header}}
       </span>
-      <div class="btn-order-online-container" *ngIf="activeSection === 1">
-        <a href="https://kakalkairuchi.dotpe.in/" *ngIf="activeSection === 1">
+      <!-- <div class="btn-order-online-container" *ngIf="activeSection === 1"> -->
+        <!-- <a href="https://kakalkairuchi.dotpe.in/" *ngIf="activeSection === 1"> -->
           <!-- <span>
             <?xml version="1.0" standalone="no"?>
             <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
             "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07138" class="bi bi-cart3" viewBox="0 0 16 16"> <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> </svg>  
           </span> -->
-          <button class="home-btn btn-order-online">Order Now!</button>
-        </a>
+          <!-- <button class="home-btn btn-order-online">Order Now!</button> -->
+        <!-- </a> -->
         <!-- <a click="" *ngIf="activeSection === 5">
           <button class="home-btn btn-order-online">Enquire Now</button>
         </a> -->
-      </div>
-      <span class="page-description" [ngClass]="{'franchise-description': activeSection === 5}" *ngIf="activeSection === 2 || activeSection === 3 || activeSection === 5">
+      <!-- </div> -->
+      <!-- [ngClass]="{'franchise-description': activeSection === 5}" -->
+      <span class="page-description"  *ngIf="activeSection === 2 || activeSection === 3 || activeSection === 5">
         {{description}}
       </span>
     </div>
@@ -69,7 +70,7 @@
     </div>
 
     <div class="single-section" id="section-five">
-      <div class="opportunities-container">
+      <div class="opportunities-container" *ngIf="activeSection === 5">
         <div class="single-slide transparent">
           <app-opportunities-enquiry [activeSection]="activeSection"></app-opportunities-enquiry>
         </div>

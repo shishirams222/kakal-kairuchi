@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   scrollY: number = 0;
   activeSection: number = 1;
   sectionHeight: number = 0;
-  header: string = 'Enriching Delicious Memories!';
+  header: string = 'Curating tastes for life!';
   description: string = '';
   showNav: boolean = false;
   showLeft: boolean = false;
@@ -136,13 +136,17 @@ export class HomeComponent implements OnInit {
       const app = document.getElementById("main");
       const section1 = document.getElementById("section-one");
       const sections = document.getElementsByClassName("single-section");
+      
+      
       app && app.addEventListener('scroll', () => {
+        console.log('active: ', this.activeSection);
         const scrolly = app.scrollTop;
         this.scrollY = scrolly;
         const sectionHeight = section1 && section1.scrollHeight || 0;
         this.sectionHeight = sectionHeight;
         const stepper = sectionHeight / 10;
-
+        console.log('window: ', window.outerWidth);
+        const screenWidth = window.outerWidth;
         if (((scrolly % sectionHeight) > stepper)) {
           this.setOpacity('0.9');
         }
@@ -176,40 +180,77 @@ export class HomeComponent implements OnInit {
 
         // console.log('scrollY ', scrolly); //1175
         // console.log('sectionHeight: ', sectionHeight); //1447
-        if (scrolly < (sectionHeight - (sectionHeight/3.5))) {
-          // console.log('in section 1');
-          this.activeSection = 1;
-          this.header = 'Enriching Delicious Memories';
+        if (screenWidth < 600) {
+          if (scrolly < (sectionHeight - (sectionHeight/3.5))) {
+            // console.log('in section 1');
+            this.activeSection = 1;
+            this.header = 'Curating tastes for life!';
+          }
+          if ((scrolly < (sectionHeight * 2) - (sectionHeight/3.5)) && (scrolly > sectionHeight - (sectionHeight/3.5))) {
+            this.activeSection = 2;
+            this.header = 'Curating Tradition';
+            this.description = '';
+            this.checkIfRightScrolled(0, 'slide-show-container');
+          }
+          if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
+            this.activeSection = 3;
+            this.header = 'Curating Happiness';
+            this.description = '';
+            this.checkIfRightScrolled(1, 'slide-show-container');
+          }
+          if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {
+            this.header = 'The Journey...';
+            this.activeSection = 4;
+            this.description = '';
+            this.checkIfRightScrolled(0, 'about-us-mobile-container');
+          }
+          if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
+            this.activeSection = 5;
+            // this.header = 'Billion Mouths Million Opportunities';
+            this.header = 'Curating Opportunities';
+            // this.description = 'Franchise with us!';
+          }
+          if ((scrolly < (sectionHeight * 6) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 5) - (sectionHeight/3.5))) {
+            this.activeSection = 6;
+          }
+        } else if (screenWidth > 600) {
+          if (scrolly < (sectionHeight - (sectionHeight/1.5))) {
+            // console.log('in section 1');
+            this.activeSection = 1;
+            this.header = 'Curating tastes for life!';
+          }
+          if ((scrolly < (sectionHeight * 2) - (sectionHeight/1.5)) && (scrolly > sectionHeight - (sectionHeight/1.5))) {
+            this.activeSection = 2;
+            this.header = 'Curating Tradition';
+            this.description = '';
+            this.checkIfRightScrolled(0, 'slide-show-container');
+          }
+          if ((scrolly < (sectionHeight * 3) - (sectionHeight/1.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/1.5))) {
+            this.activeSection = 3;
+            this.header = 'Curating Happiness';
+            this.description = '';
+            this.checkIfRightScrolled(1, 'slide-show-container');
+          }
+          if ((scrolly < (sectionHeight * 4) - (sectionHeight/1.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/1.5))) {
+            this.header = 'The Journey...';
+            this.activeSection = 4;
+            this.description = '';
+            this.checkIfRightScrolled(0, 'about-us-mobile-container');
+          }
+          if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
+            this.activeSection = 5;
+            // this.header = 'Billion Mouths Million Opportunities';
+            this.header = 'Curating Opportunities';
+            // this.description = 'Franchise with us!';
+          }
+          if ((scrolly < (sectionHeight * 6) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 5) - (sectionHeight/3.5))) {
+            this.activeSection = 6;
+          }
+          if ((scrolly < (sectionHeight * 7)) && (scrolly > (sectionHeight * 6))) {
+            this.activeSection = 7;
+          }
         }
-        if ((scrolly < (sectionHeight * 2) - (sectionHeight/3.5)) && (scrolly > sectionHeight - (sectionHeight/3.5))) {
-          this.activeSection = 2;
-          this.header = 'Tradition Meets Taste of Hands';
-          this.description = '';
-          this.checkIfRightScrolled(0, 'slide-show-container');
-        }
-        if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
-          this.activeSection = 3;
-          this.header = 'Taste Melt Happiness Felt';
-          this.description = '';
-          this.checkIfRightScrolled(1, 'slide-show-container');
-        }
-        if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {
-          this.header = 'Our Journey...';
-          this.activeSection = 4;
-          this.description = '';
-          this.checkIfRightScrolled(0, 'about-us-mobile-container');
-        }
-        if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
-          this.activeSection = 5;
-          this.header = 'Billion Mouths Million Opportunities';
-          this.description = 'Franchise with us!';
-        }
-        if ((scrolly < (sectionHeight * 6)) && (scrolly > (sectionHeight * 5))) {
-          this.activeSection = 6;
-        }
-        if ((scrolly < (sectionHeight * 7)) && (scrolly > (sectionHeight * 6))) {
-          this.activeSection = 7;
-        }
+        
       });
       
     })()
