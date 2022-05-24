@@ -89,10 +89,9 @@
         border: 1px solid darkslategrey;
         border-radius: 12px;
         background: linen;
-        // outline: 1px solid white;
         padding: 4px;
         margin-bottom: 4px;
-        text-transform: uppercase;
+        // text-transform: uppercase;
       }
     }
     
@@ -121,6 +120,7 @@
         box-shadow: -6px 6px 16px 0 black;
         margin-top: 14px;
         overflow: auto;
+        min-width: 270px;
       }
     }
 
@@ -139,6 +139,11 @@
         
         border-radius: 20px;
         margin-bottom: 14px;
+
+        &.ajja-ajji {
+          padding: 46px 0 0 0;
+          background: #fafafa;
+        }
       }
     }
   }
