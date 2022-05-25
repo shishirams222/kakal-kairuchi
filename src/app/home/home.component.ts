@@ -139,13 +139,11 @@ export class HomeComponent implements OnInit {
       
       
       app && app.addEventListener('scroll', () => {
-        console.log('active: ', this.activeSection);
         const scrolly = app.scrollTop;
         this.scrollY = scrolly;
         const sectionHeight = section1 && section1.scrollHeight || 0;
         this.sectionHeight = sectionHeight;
         const stepper = sectionHeight / 10;
-        console.log('window: ', window.outerWidth);
         const screenWidth = window.outerWidth;
         if (((scrolly % sectionHeight) > stepper)) {
           this.setOpacity('0.9');
