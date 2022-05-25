@@ -7,11 +7,17 @@
     &.form-open {
         bottom: 0;
         right: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
         height: 100%;
     }
 
     &.form-close {
         bottom: 17%;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     .form-container {
