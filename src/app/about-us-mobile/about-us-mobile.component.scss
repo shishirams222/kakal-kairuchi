@@ -16,7 +16,7 @@
     align-items: center;
     height: calc(100vh - var(--scrollbar-height));
     margin-top: 98px;
-    min-width: 30vw;
+    min-width: 100vw;
     scroll-snap-align: start;
     font-size: 3.5ch;
     text-align: center;
@@ -48,7 +48,8 @@
 
       .stepper {
         position: absolute;
-        min-width: 30vw;
+        // min-width: 30vw;
+        width: 100%;
         top: 0;
         background: #505050;
         height: 8px;
@@ -83,6 +84,11 @@
       .image-name {
         max-width: 260px;
         min-width: 260px;
+
+        // max-width: 75vw;
+        // min-width: 75vw;
+
+
         font-size: 16px;
         font-weight: 700;
         // box-shadow: 0px 0px 1px 2px red;
@@ -153,13 +159,17 @@
   }
 
   @media screen and (min-width: 670px) {
-    .stepper {
-      width: 30vh;
-    }
-  
-    .image-name {
-      max-width: 30vw;
+    .single-slide {
       min-width: 30vw;
+    }
+
+    .stepper {
+      width: 30vw;
+    }
+
+    .image-name {
+      max-width: 260px;
+      min-width: 260px;
     }
   }
 

@@ -338,7 +338,10 @@
         background: none;
       }
 
-      
+      &.franchise-bg {
+        background-size: 100% 130%;
+        background-position-y: center;
+      }
     }
   }
 }

@@ -145,6 +145,7 @@ export class HomeComponent implements OnInit {
         this.sectionHeight = sectionHeight;
         const stepper = sectionHeight / 10;
         const screenWidth = window.outerWidth;
+        // this.setOpacity('0');
         if (((scrolly % sectionHeight) > stepper)) {
           this.setOpacity('0.9');
         }
@@ -172,76 +173,78 @@ export class HomeComponent implements OnInit {
         if (((scrolly % sectionHeight) > (stepper * 9))) {
           this.setOpacity('0.9');
         }
-        if (((scrolly % sectionHeight) > (stepper * 10))) {
+        if (((scrolly % sectionHeight) > (stepper * 9.5))) {
           this.setOpacity('1');
         }
 
         // console.log('scrollY ', scrolly); //1175
         // console.log('sectionHeight: ', sectionHeight); //1447
         if (screenWidth < 600) {
-          if (scrolly < (sectionHeight - (sectionHeight/3.5))) {
+          var mobileDividerOffset = 3.5;
+          if (scrolly < (sectionHeight - (sectionHeight/mobileDividerOffset))) {
             // console.log('in section 1');
             this.activeSection = 1;
             this.header = 'Curating tastes for life!';
           }
-          if ((scrolly < (sectionHeight * 2) - (sectionHeight/3.5)) && (scrolly > sectionHeight - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 2) - (sectionHeight/mobileDividerOffset)) && (scrolly > sectionHeight - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 2;
             this.header = 'Curating Tradition';
             this.description = '';
             this.checkIfRightScrolled(0, 'slide-show-container');
           }
-          if ((scrolly < (sectionHeight * 3) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/3.5))) {
+          
+          if ((scrolly < (sectionHeight * 3) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 2) - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 3;
             this.header = 'Curating Happiness';
             this.description = '';
             this.checkIfRightScrolled(1, 'slide-show-container');
           }
-          if ((scrolly < (sectionHeight * 4) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 4) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 3) - (sectionHeight/mobileDividerOffset))) {
             this.header = 'The Journey...';
             this.activeSection = 4;
             this.description = '';
             this.checkIfRightScrolled(0, 'about-us-mobile-container');
           }
-          if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 5) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 4) - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 5;
             // this.header = 'Billion Mouths Million Opportunities';
             this.header = 'Curating Opportunities';
             // this.description = 'Franchise with us!';
           }
-          if ((scrolly < (sectionHeight * 6) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 5) - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 6) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 5) - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 6;
           }
         } else if (screenWidth > 600) {
-          if (scrolly < (sectionHeight - (sectionHeight/1.5))) {
-            // console.log('in section 1');
+          var dividerOffset = 2.2;
+          if (scrolly < (sectionHeight - (sectionHeight/dividerOffset))) {
             this.activeSection = 1;
             this.header = 'Curating tastes for life!';
           }
-          if ((scrolly < (sectionHeight * 2) - (sectionHeight/1.5)) && (scrolly > sectionHeight - (sectionHeight/1.5))) {
+          if ((scrolly < (sectionHeight * 2) - (sectionHeight/dividerOffset)) && (scrolly > sectionHeight - (sectionHeight/dividerOffset))) {
             this.activeSection = 2;
             this.header = 'Curating Tradition';
             this.description = '';
             this.checkIfRightScrolled(0, 'slide-show-container');
           }
-          if ((scrolly < (sectionHeight * 3) - (sectionHeight/1.5)) && (scrolly > (sectionHeight * 2) - (sectionHeight/1.5))) {
+          if ((scrolly < (sectionHeight * 3) - (sectionHeight/dividerOffset)) && (scrolly > (sectionHeight * 2) - (sectionHeight/dividerOffset))) {
             this.activeSection = 3;
             this.header = 'Curating Happiness';
             this.description = '';
             this.checkIfRightScrolled(1, 'slide-show-container');
           }
-          if ((scrolly < (sectionHeight * 4) - (sectionHeight/1.5)) && (scrolly > (sectionHeight * 3) - (sectionHeight/1.5))) {
+          if ((scrolly < (sectionHeight * 4) - (sectionHeight/dividerOffset)) && (scrolly > (sectionHeight * 3) - (sectionHeight/dividerOffset))) {
             this.header = 'The Journey...';
             this.activeSection = 4;
             this.description = '';
             this.checkIfRightScrolled(0, 'about-us-mobile-container');
           }
-          if ((scrolly < (sectionHeight * 5) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 4) - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 5) - (sectionHeight/dividerOffset)) && (scrolly > (sectionHeight * 4) - (sectionHeight/dividerOffset))) {
             this.activeSection = 5;
             // this.header = 'Billion Mouths Million Opportunities';
             this.header = 'Curating Opportunities';
             // this.description = 'Franchise with us!';
           }
-          if ((scrolly < (sectionHeight * 6) - (sectionHeight/3.5)) && (scrolly > (sectionHeight * 5) - (sectionHeight/3.5))) {
+          if ((scrolly < (sectionHeight * 6) - (sectionHeight/dividerOffset)) && (scrolly > (sectionHeight * 5) - (sectionHeight/dividerOffset))) {
             this.activeSection = 6;
           }
           if ((scrolly < (sectionHeight * 7)) && (scrolly > (sectionHeight * 6))) {
