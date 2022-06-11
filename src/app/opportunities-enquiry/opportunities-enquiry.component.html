@@ -1,79 +1,74 @@
 <div class="opportunities" [ngClass]="{'form-open': isWidgetOpen, 'form-close': !isWidgetOpen}" *ngIf="activeSection === 5">
-    <div *ngIf="isWidgetOpen" style="
-        border-radius: 8px;
+  
+  <div *ngIf="isWidgetOpen && !showToast" style="
+    border-radius: 8px;
     padding: 16px;
     background-color: #0d0c0cc4;
     box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
     border: 1px solid #CCC;">
-      <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
-        <form #feedback="ngForm" (ngSubmit)="onSubmit(feedback.value)" style="width: 100%;">
-          <div class="header-container p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
-            <div class="p-d-flex" style="font-size: 24px; color: white">
-              <strong style="color: white;">Franchise Inquiry</strong>
-            </div>
-            <div (click)="isWidgetOpen = false">
-              <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
-            </div>
+    <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
+      <form #feedback="ngForm" (ngSubmit)="onSubmit(feedback.value)" style="width: 100%;">
+        <div class="header-container p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
+          <div class="p-d-flex" style="font-size: 24px; color: white">
+            <strong style="color: white;">Franchise Inquiry</strong>
           </div>
+          <div (click)="isWidgetOpen = false">
+            <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
+          </div>
+        </div>
 
-          <div class="form-area p-d-flex p-flex-column is-justify-content-center is-align-items-center">
-            <div class="p-d-flex p-flex-column" style="width: 100%;">
-              <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-                <label class="input-label" for="firstName">First Name</label>
-                <input ngModel name="firstName" type="text" class="p-inputtext p-component p-element"> 
-              </div>
-              <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-                <label class="input-label" for="lastName">Last Name</label>
-                <input ngModel name="lastName" type="text" class="p-inputtext p-component p-element"> 
-              </div>
-              <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-                <label class="input-label" for="email">Email</label>
-                <input ngModel name="email" id="email" type="email" class="p-inputtext p-component p-element"> 
-              </div>
-              <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-                <label class="input-label" for="phone">Phone</label>
-                <input ngModel name="phone" id="phone" type="number" class="p-inputtext p-component p-element"> 
-              </div>
-              <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
-                <label class="input-label" for="description">Write To Us</label>
-                <textarea ngModel name="description" id="description" class="p-inputtext p-component p-element"></textarea> 
-              </div>
+        <div class="form-area p-d-flex p-flex-column is-justify-content-center is-align-items-center">
+          <div class="p-d-flex p-flex-column" style="width: 100%;">
+            <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
+              <label class="input-label" for="firstName">First Name</label>
+              <input ngModel name="firstName" type="text" class="p-inputtext p-component p-element"> 
             </div>
-            <button style=" margin-top: 16px;
-            height: 40px;
-            border-radius: 20px;
-            max-width: 140px;
-            align-items: center;
-            justify-self: center;
-            background: #3a3a41;
-            min-width: 140px;
-            color: white;" type="submit" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
+            <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
+              <label class="input-label" for="lastName">Last Name</label>
+              <input ngModel name="lastName" type="text" class="p-inputtext p-component p-element"> 
+            </div>
+            <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
+              <label class="input-label" for="email">Email</label>
+              <input ngModel name="email" id="email" type="email" class="p-inputtext p-component p-element"> 
+            </div>
+            <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
+              <label class="input-label" for="phone">Phone</label>
+              <input ngModel name="phone" id="phone" type="number" class="p-inputtext p-component p-element"> 
+            </div>
+            <div class="p-field p-col-12 p-d-flex p-flex-column m-0">
+              <label class="input-label" for="description">Write To Us</label>
+              <textarea ngModel name="description" id="description" class="p-inputtext p-component p-element"></textarea> 
+            </div>
           </div>
-        </form>
-      </div>
-  
-      <div *ngIf="!isFormOpen" style="display: flex; max-width: 240px; flex-direction: row;">
-        <div style="display: flex; color: #000000;">
-          Thanks you, our team will reach out to you soon!
+          <button style=" margin-top: 16px;
+          height: 40px;
+          border-radius: 20px;
+          max-width: 140px;
+          align-items: center;
+          justify-self: center;
+          background: #3a3a41;
+          min-width: 140px;
+          color: white;" type="submit" class="p-element p-ripple p-component" pRipple label="Submit">Submit</button>
         </div>
-        <div (click)="resetForm()">
-          <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
-        </div>
-      </div>
+      </form>
     </div>
-  
-    <div *ngIf="!isWidgetOpen" (click)="openForm()" style="
-    box-shadow: -5px 6px 22px dimgrey;
-    border-radius: 34px;
-    background-color: #ffffffdb;
-    border: 2px solid #f07128;
-    height: 46px;
-    margin: 0 36px;
-    bottom: 6px;
-    color: #f07138;
-    font-size: 28px;
-    font-weight: 500;">
-      Send Inquiry
-    </div>  
+  </div>
+
+  <div *ngIf="!isWidgetOpen" (click)="openForm()" style="
+  box-shadow: -5px 6px 22px dimgrey;
+  border-radius: 34px;
+  background-color: #ffffffdb;
+  border: 2px solid #f07128;
+  height: 46px;
+  margin: 0 36px;
+  bottom: 6px;
+  color: #f07138;
+  font-size: 28px;
+  font-weight: 500;">
+    Send Inquiry
+  </div>
+
+  <div *ngIf="showToast" class="toast-message" [ngClass]="{'fade-animation': showToast}">
+    Thank you, our team will reach out to you soon!
+  </div>
 </div>
-  

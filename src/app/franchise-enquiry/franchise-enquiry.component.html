@@ -1,10 +1,10 @@
 <div style="position: fixed; bottom: 24px; right: 16px; z-index: 100;">
-  <div *ngIf="isWidgetOpen" style="border-radius: 8px;
-  padding: 16px;
-  background-color: #0d0c0cc4;
-  box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
-  border: 1px solid #CCC;">
-    <div class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
+  <div *ngIf="isWidgetOpen">
+    <div style="border-radius: 8px;
+    padding: 16px;
+    background-color: #0d0c0cc4;
+    box-shadow: rgb(0 0 0 / 99%) 0px 30px 240px -12px inset, black 0px 30px 36px -18px inset;
+    border: 1px solid #CCC;" class="is-flex is-flex-direction-row form-container" *ngIf="isFormOpen">
       <form #feedback="ngForm" (ngSubmit)="onSubmit(feedback.value)">
         <div class="p-d-flex p-flex-row is-justify-content-space-between is-align-content-space-between">
           <div class="p-d-flex">
@@ -51,15 +51,6 @@
         </div>
       </form>
     </div>
-
-    <div *ngIf="!isFormOpen" style="display: flex; max-width: 240px; flex-direction: row;">
-      <div style="display: flex; color: #000000;">
-        Thanks For Your Valuable FeedBack!
-      </div>
-      <div (click)="resetWidget()">
-        <img src="https://img.icons8.com/material/24/000000/delete-sign--v1.png"/>
-      </div>
-    </div>
   </div>
 
   <div *ngIf="!isWidgetOpen" (click)="openWidget()" style="
@@ -77,5 +68,8 @@
     <!-- <img src="https://img.icons8.com/offices/40/000000/feedback.png"/> -->
     <!-- <img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-message-stationery-and-office-wanicon-flat-wanicon.png"/> -->
     <img style="min-height: 30px; max-height: 30px;" src="https://img.icons8.com/ios/50/000000/feedback.png"/>
-  </div>  
+  </div>
+</div>
+<div *ngIf="showToast" class="toast-message" [ngClass]="{'fade-animation': showToast}">
+  Thanks for your valuable feedBack!
 </div>

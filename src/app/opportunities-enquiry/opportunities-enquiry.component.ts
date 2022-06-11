@@ -15,6 +15,7 @@ export class OpportunitiesEnquiryComponent implements OnInit {
   firstName: string = '';
   isWidgetOpen: boolean = false;
   isFormOpen: boolean = true;
+  showToast: boolean = false;
 
 
   openForm() {
@@ -26,6 +27,14 @@ export class OpportunitiesEnquiryComponent implements OnInit {
     this.isFormOpen = true;
   };
 
+  showToastMessage() {
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+      this.resetForm();
+    }, 3000);
+  };
+
   onSubmit (formValue: any) {
     this.isFormOpen = false;
 
@@ -33,7 +42,7 @@ export class OpportunitiesEnquiryComponent implements OnInit {
     var request = new XMLHttpRequest();
 
     request.open(
-      "POST", 
+      "POST",
       'https://api.rock.so/webhook/bot?method=sendMessage&auth=aFvy5SnlY6sEiX3MbowzGUSVnB8JAVjFG5ZT8csnBVE');
 
     request.setRequestHeader('Content-type', 'application/json');
@@ -43,6 +52,7 @@ export class OpportunitiesEnquiryComponent implements OnInit {
     }
 
     request.send(JSON.stringify(params));
+    this.showToastMessage();
   };
 
   ngOnInit(): void {

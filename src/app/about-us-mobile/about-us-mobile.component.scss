@@ -161,10 +161,12 @@
   @media screen and (min-width: 670px) {
     .single-slide {
       min-width: 30vw;
-    }
+      .year-stepper {
+        .stepper {
+          width: 30vw;
+        }
 
-    .stepper {
-      width: 30vw;
+      }
     }
 
     .image-name {

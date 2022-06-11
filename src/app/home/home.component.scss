@@ -95,12 +95,12 @@
         }
 
         &.franchise-header {
-          font-size: 36px;
           padding: 56px 16px;
           font-weight: 500;
           box-shadow: 30px -4px 45px -8px black;
           margin-top: 24px;
           background: radial-gradient(black, transparent);
+          border-radius: 18px;
         }
       }
 
@@ -328,7 +328,18 @@
       display: none;
     }
 
+    
     .section-content {
+      .home-content {
+        .header {
+          font-size: 42px !important;
+        }
+
+        .franchise-header {
+          font-size: 48px !important;
+        }
+      }
+      
       &.left-header {
         width: 30vw;
       }

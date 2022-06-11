@@ -1,6 +1,6 @@
 .opportunities {
     position: fixed;
-    z-index: 100;
+    z-index: 10;
     width: 100%;
     max-width: 500px;
 
@@ -55,4 +55,41 @@
         }
       }
     }
+  }
+
+.toast-message {
+  position: fixed;
+  top: 78px;
+  right: 30px;
+  max-width: 240px;
+  background-color: #333;
+  border: 1px soild darkgray;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  padding: 14px;
+}
+
+.fade-animation {
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {right: -20; opacity: 0;}
+    to {right: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {right: -20; opacity: 0;}
+    to {right: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {right: 30px; opacity: 1;}
+    to {right: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {right: 30px; opacity: 1;}
+    to {right: 0; opacity: 0;}
   }

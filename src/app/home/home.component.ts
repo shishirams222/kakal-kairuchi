@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   showRight: boolean = true;
   showHeaderButtons: boolean = true;
   showHeader: boolean = true;
+  scrollHelper: any = [
+    0,0,0,0,0
+  ];
   opportunitiesHeader: string = '';
   productDetails: string = '';
   slideShow1Data: any = [
@@ -103,7 +106,6 @@ export class HomeComponent implements OnInit {
   }
 
   public setOpacity (opacityValue: string) {
-    // console.log('value: ', opacityValue);
     $(".section-content").css("opacity", opacityValue);
     $(".welcome-text").css("opacity", opacityValue);
     $(".btn-order-online-container").css("opacity", opacityValue);
@@ -131,13 +133,29 @@ export class HomeComponent implements OnInit {
     }
   };
 
+  doSmallLeftScroll(containerClass: string, index: number) { 
+    const slideShowContainer = document.getElementsByClassName(containerClass)[index];
+    setTimeout(() => {
+      slideShowContainer.scrollTo({top: 0, left: 240, behavior: 'smooth'});
+      setTimeout(() => {
+        slideShowContainer.scrollTo({top: 0, left: -240, behavior: 'smooth'});
+      }, 400);
+    }, 2000);
+  };
+
+  helpScroll(activeSection: number, containerClass: string, index: number) {
+    if (this.scrollHelper[activeSection] < 2) {
+      this.doSmallLeftScroll(containerClass, index);
+      this.scrollHelper[activeSection] = this.scrollHelper[activeSection] + 1;
+    }
+  };
+
   ngAfterContentInit() {
     (() => {
       const app = document.getElementById("main");
       const section1 = document.getElementById("section-one");
       const sections = document.getElementsByClassName("single-section");
-      
-      
+
       app && app.addEventListener('scroll', () => {
         const scrolly = app.scrollTop;
         this.scrollY = scrolly;
@@ -186,25 +204,46 @@ export class HomeComponent implements OnInit {
             this.activeSection = 1;
             this.header = 'Curating tastes for life!';
           }
+
           if ((scrolly < (sectionHeight * 2) - (sectionHeight/mobileDividerOffset)) && (scrolly > sectionHeight - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 2;
             this.header = 'Curating Tradition';
             this.description = '';
             this.checkIfRightScrolled(0, 'slide-show-container');
           }
-          
+
+          if (this.activeSection === 2) {
+            setTimeout(() => {
+              this.helpScroll(2, 'slide-show-container', 0);
+            }, 600);
+          }
+
           if ((scrolly < (sectionHeight * 3) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 2) - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 3;
             this.header = 'Curating Happiness';
             this.description = '';
             this.checkIfRightScrolled(1, 'slide-show-container');
           }
+
+          if (this.activeSection === 3) {
+            setTimeout(() => {
+              this.helpScroll(3, 'slide-show-container', 1);
+            }, 600);
+          }
+
           if ((scrolly < (sectionHeight * 4) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 3) - (sectionHeight/mobileDividerOffset))) {
             this.header = 'The Journey...';
             this.activeSection = 4;
             this.description = '';
             this.checkIfRightScrolled(0, 'about-us-mobile-container');
           }
+
+          if (this.activeSection === 4) {
+            setTimeout(() => {
+              this.helpScroll(4, 'about-us-mobile-container', 0);
+            }, 600);
+          }
+
           if ((scrolly < (sectionHeight * 5) - (sectionHeight/mobileDividerOffset)) && (scrolly > (sectionHeight * 4) - (sectionHeight/mobileDividerOffset))) {
             this.activeSection = 5;
             // this.header = 'Billion Mouths Million Opportunities';

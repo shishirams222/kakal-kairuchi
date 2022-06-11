@@ -14,6 +14,7 @@ export class FranchiseEnquiryComponent implements OnInit {
   firstName: string = '';
   isWidgetOpen: boolean = false;
   isFormOpen: boolean = true;
+  showToast: boolean = false;
 
   openWidget() {
     this.isWidgetOpen = true;
@@ -22,6 +23,14 @@ export class FranchiseEnquiryComponent implements OnInit {
   resetWidget() {
     this.isWidgetOpen = false;
     this.isFormOpen = true;
+  };
+
+  showToastMessage() {
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+      this.resetWidget();
+    }, 3000);
   };
 
   onSubmit (formValue: any) {
@@ -41,6 +50,7 @@ export class FranchiseEnquiryComponent implements OnInit {
     }
 
     request.send(JSON.stringify(params));
+    this.showToastMessage();
   };
 
   ngOnInit(): void {
