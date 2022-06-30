@@ -9,9 +9,9 @@
     <p-image *ngIf="activeSection === 1" src="assets/images/full_logo_white_orange.png" alt="Image" width="140"></p-image>
     <p-image *ngIf="activeSection > 1"src="assets/icons/hand_logo.png" alt="Image" width="60"></p-image>
   </div>
-  <div class="is-flex is-flex-direction-row is-align-items-center p-d-none p-d-md-inline-flex">
+  <div class="is-flex is-flex-direction-row is-align-items-center p-d-md-inline-flex">
     <!-- Main Navigation -->
-    <nav id="nav-main">
+    <!-- <nav id="nav-main"> -->
       <!-- <ul class="is-flex is-flex-direction-row is-align-content-space-between"> -->
         <!-- <li class="top-nav-item">
           <a
@@ -60,18 +60,20 @@
           >
         </li> -->
       <!-- </ul> -->
-    </nav>
+    <!-- </nav> -->
   </div>
-  <!-- <div class="p-d-flex p-ai-center">
+  <div style="position: fixed; top: 16px; right: 18px;">
     <a href="https://kakalkairuchi.dotpe.in/">
       <div class="p-d-flex p-flex-row p-ai-center">
-        <div><p-image src="assets/icons/order_online.png" alt="Image" width="44"></p-image></div>
         <div>
+          <img style="height: 40px; width: 40px;" src="../../assets/images/order_cart.png" alt="Image">  
+        </div>
+        <!-- <div>
           <p class="order-online-text btn-shine">
             Order Online Now!
           </p>
-        </div>
+        </div> -->
       </div>
     </a>
-  </div> -->
+  </div>
 </div>

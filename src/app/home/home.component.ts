@@ -75,28 +75,51 @@ export class HomeComponent implements OnInit {
     {
       imgUrl: 'assets/images/home_page_products_2/cheese_ball.jpg',
       productName: 'Cheese Ball',
-      description: 'Cheese ball description'
+      // description: 'Cheese ball description'
+      description: ''
     },
     {
       imgUrl: 'assets/images/home_page_products_2/grilled_garlic_panner.jpg',
       productName: 'Grilled Garlic Paneer',
-      description: 'Grilled Garlic Paneer description'
+      // description: 'Grilled Garlic Paneer description'
+      description: ''
     },
     {
       imgUrl: 'assets/images/home_page_products_2/bbq_paneer_tikka.jpg',
       productName: 'Barbeque Paneer Tikka',
-      description: 'Barbeque Paneer Tikka description'
+      // description: 'Barbeque Paneer Tikka description'
+      description: ''
     },
     {
       imgUrl: 'assets/images/home_page_products_2/peas_cuttlet.jpg',
       productName: 'Peas Cuttlet',
-      description: 'Peas Cuttlet description'
+      // description: 'Peas Cuttlet description'
+      description: ''
     },
     {
       imgUrl: 'assets/images/home_page_products_2/masala_dosa.jpg',
       productName: 'Masala Dosa',
-      description: 'Masala Dosa description'
+      // description: 'Masala Dosa description'
+      description: ''
     },
+    {
+      imgUrl: 'assets/images/home_page_products_2/open_butter_masala.jpg',
+      productName: 'Open Butter Masala',
+      // description: 'Masala Dosa description'
+      description: ''
+    },
+    {
+      imgUrl: 'assets/images/home_page_products_2/vada.jpg',
+      productName: 'Vada',
+      // description: 'Masala Dosa description'
+      description: ''
+    },
+    // {
+    //   imgUrl: 'assets/images/home_page_products_2/coffee.jpg',
+    //   productName: 'Masala Dosa',
+    //   // description: 'Masala Dosa description'
+    //   description: ''
+    // },
   ]
   slideShowInfo2 = 'This is products 2 info';
   slideShow2Header = 'Our Products 2';
@@ -127,7 +150,8 @@ export class HomeComponent implements OnInit {
         this.setOpacity('0.0');
       }
     } else {
-      if (scrollX > singleSlide.scrollWidth) {
+      console.log('scrollx: ', scrollX, singleSlide.scrollWidth);
+      if (scrollX >= singleSlide.scrollWidth - 5) {
         this.setOpacity('0.0');
       }
     }
@@ -136,10 +160,13 @@ export class HomeComponent implements OnInit {
   doSmallLeftScroll(containerClass: string, index: number) { 
     const slideShowContainer = document.getElementsByClassName(containerClass)[index];
     setTimeout(() => {
-      slideShowContainer.scrollTo({top: 0, left: 240, behavior: 'smooth'});
-      setTimeout(() => {
-        slideShowContainer.scrollTo({top: 0, left: -240, behavior: 'smooth'});
-      }, 400);
+      // if user has not scrolled in two seconds
+      if (slideShowContainer.scrollLeft < 100) {
+        slideShowContainer.scrollTo({top: 0, left: 240, behavior: 'smooth'});
+        setTimeout(() => {
+          slideShowContainer.scrollTo({top: 0, left: -240, behavior: 'smooth'});
+        }, 400);
+      }
     }, 2000);
   };
 

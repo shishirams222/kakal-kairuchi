@@ -7,7 +7,7 @@ $kkr-primary: #f07138;
     position: absolute;
     top: 24px;
     left: 24px;
-    z-index: 12;
+    z-index: 12px;
   }
 
   .divider {
@@ -15,7 +15,6 @@ $kkr-primary: #f07138;
   }
 
   .side-nav-item {
-    // border-bottom: 1px solid #ababab;
     font-size: 20px;
     padding-left: 20px;
     color: white;
@@ -26,7 +25,7 @@ $kkr-primary: #f07138;
   .page-label {
     color: white;
     padding: 14px 2px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
   }
 

@@ -27,7 +27,6 @@ export class AboutUsMobileComponent implements OnInit {
   ngAfterContentInit(): void {
     const aboutUsMobileContainer = document.getElementById("about-us-mobile-container");
     const singleSlide = document.getElementsByClassName("single-slide")[0];
-    console.log('conainer: ', aboutUsMobileContainer);
     aboutUsMobileContainer && aboutUsMobileContainer.addEventListener('scroll', () => {
       const scrollX = aboutUsMobileContainer.scrollLeft;
 
